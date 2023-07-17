@@ -36,5 +36,5 @@ p, text, input, select, textarea, label {
 /* Bootstrap Overrides & Additions */
 
 .nav-link__text:hover {
-color: #D9176B !important;
+color: var(--main-accent);
 }
