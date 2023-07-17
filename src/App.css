@@ -5,16 +5,16 @@
   --main-accent: #D9176B;
   --secondary-accent: #00E6D6;
   --tertiary-accent: #11DF6A;
-  --rgb-static: ;
+  
 }
 
 * {
   font-family: 'Inter', sans-serif;
+  color: var(--text);
 }
 
 body {
   background-color: var(--bg);
-  color: var(--text);
 }
 
 h1 {
@@ -32,5 +32,3 @@ h3, p  {
 p, text, input, select, textarea, label {
   font-weight: 200;
 }
-
-/* Nav */

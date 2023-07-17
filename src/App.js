@@ -1,14 +1,11 @@
 import React from 'react';
-import Nav from './components/Nav';
+import MainNav from './components/MainNav';
 import './App.css';
-
-// Rest of your App component code...
-
 
 function App() {
   return (
     <div className="App">
-      <Nav/>
+      <MainNav/>
     </div>
   );
 }

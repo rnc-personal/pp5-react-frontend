@@ -1,9 +1,10 @@
-.Nav {
+.MainNav {
     background-color: var(--bg);
     position: relative;
+    color: white;
   }
   
-  .Nav::after {
+  .MainNav::after {
     content: '';
     position: absolute;
     bottom: 0;
