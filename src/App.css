@@ -32,3 +32,9 @@ h3, p  {
 p, text, input, select, textarea, label {
   font-weight: 200;
 }
+
+/* Bootstrap Overrides & Additions */
+
+.nav-link__text:hover {
+color: #D9176B !important;
+}
