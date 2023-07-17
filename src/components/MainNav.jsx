@@ -1,11 +1,12 @@
 import React from "react"
 import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
+import RGBBar from '../components/RGBBar';
 import styles from "../styles/MainNav.module.css"
 
 const MainNav = () => {
     return (
-        <Navbar className={styles.MainNav} expand="md" fixed="top">
+        <Navbar expand="md" fixed="top" className={styles.MainNav} >
             <Container>
                 <Navbar.Brand>
                     <h1>BATTLEBOXES</h1>
@@ -31,6 +32,7 @@ const MainNav = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            <RGBBar className={styles.RGBBar}/>
         </Navbar>
     )
 }

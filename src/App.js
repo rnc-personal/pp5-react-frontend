@@ -1,5 +1,6 @@
 import React from 'react';
 import MainNav from './components/MainNav';
+import RGBBar from './components/RGBBar';
 import './App.css';
 
 function App() {

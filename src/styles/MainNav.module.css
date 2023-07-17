@@ -1,10 +1,14 @@
 .MainNav {
     background-color: var(--bg);
-    position: relative;
     color: white;
   }
   
-  .MainNav::after {
+  .RGBBarWrapper {
+    height: 2.5rem;
+    position: relative;
+}
+
+.RGBBar::after {
     content: '';
     position: absolute;
     bottom: 0;
