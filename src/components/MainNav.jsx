@@ -5,7 +5,7 @@ import styles from "../styles/MainNav.module.css"
 
 const MainNav = () => {
     return (
-        <Navbar className={styles.MainNav} expand="md">
+        <Navbar className={styles.MainNav} expand="md" fixed="top">
             <Container>
                 <Navbar.Brand>
                     <h1>BATTLEBOXES</h1>

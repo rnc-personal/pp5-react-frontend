@@ -15,6 +15,7 @@
 
 body {
   background-color: var(--bg);
+  min-height: 3000px;
 }
 
 h1 {
