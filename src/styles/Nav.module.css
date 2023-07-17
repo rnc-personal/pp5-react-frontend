@@ -18,8 +18,8 @@
       rgba(20, 227, 165, 1) 75%,
       rgba(58, 220, 74, 1) 100%
     );
-    animation: rotateGradient 30s linear infinite;
-    background-size: 200% 100%;
+    /* animation: rotateGradient 30s linear infinite;
+    background-size: 200% 100%; */
 
   }
   
