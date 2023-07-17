@@ -1,12 +1,14 @@
+import React from 'react';
+import Nav from './components/Nav';
 import './App.css';
+
+// Rest of your App component code...
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Testing</h1>
-      <h2>Testing</h2>
-      <h3>Testing</h3>
-      <p>Testing</p>
+      <Nav/>
     </div>
   );
 }

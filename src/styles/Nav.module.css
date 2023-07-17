@@ -1,0 +1,34 @@
+.Nav {
+    background-color: var(--bg);
+    position: relative;
+  }
+  
+  .Nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.45rem;
+    background: linear-gradient(
+      90deg,
+      rgba(217, 23, 107, 1) 0%,
+      rgba(186, 61, 217, 1) 25%,
+      rgba(125, 162, 217, 1) 50%,
+      rgba(20, 227, 165, 1) 75%,
+      rgba(58, 220, 74, 1) 100%
+    );
+    animation: rotateGradient 30s linear infinite;
+    background-size: 200% 100%;
+
+  }
+  
+  @keyframes rotateGradient {
+    0% {
+      background-position: 0% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+  
