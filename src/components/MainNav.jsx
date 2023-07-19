@@ -1,6 +1,5 @@
 import React from "react"
 import { Container, Navbar, Nav } from "react-bootstrap"
-import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
 import styles from "../styles/MainNav.module.css"
 

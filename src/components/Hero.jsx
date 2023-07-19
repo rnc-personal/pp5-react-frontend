@@ -10,4 +10,6 @@ const Hero = () => {
     )
 }
 
+{/* <Hero className={styles.App}/> */}
+
 export default Hero
