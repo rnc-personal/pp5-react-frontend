@@ -17,20 +17,30 @@ body {
   background-color: var(--bg);
 }
 
+.Main {
+  margin-top: 10rem;
+  min-height: 25rem;
+  text-align: center;
+}
+
 h1 {
   font-weight: 800;
+  font-size: 3rem;
 }
 
 h2 {
   font-weight: 500;
+  font-size: 2.4rem;
 }
 
 h3, p  {
   font-weight: 300;
+  font-size: 1.8rem;
 }
 
 p, text, input, select, textarea, label {
   font-weight: 200;
+  font-size: 1.4rem;
 }
 
 /* Bootstrap Overrides & Additions */
