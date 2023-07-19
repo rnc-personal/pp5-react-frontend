@@ -21,6 +21,9 @@ function App() {
           <Route exact path='/signup' render={() =>
             <h1>Signup</h1>
           } />
+          <Route render={() =>
+            <h1>Whoops Looks You're Lost!</h1>
+          } />
         </Switch>
       </Container>
 </div>

@@ -11,6 +11,9 @@
 * {
   font-family: 'Inter', sans-serif;
   color: var(--text);
+  outline: none;
+  box-sizing: border-box;
+  border: none;
 }
 
 body {
@@ -43,16 +46,4 @@ p, text, input, select, textarea, label {
   font-size: 1.4rem;
 }
 
-/* Bootstrap Overrides & Additions */
-
-.nav-link__text:hover {
-color: var(--main-accent);
-}
-
-.navbar-light .navbar-toggler-icon  {
-  filter: invert(1);
-}
-
-.navbar-toggler {
-  border: none;
-}
+  /* Bootstrap Overrides & Additions */
