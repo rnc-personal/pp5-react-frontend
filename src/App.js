@@ -4,8 +4,6 @@ import Container  from 'react-bootstrap/Container';
 import styles from './App.module.css';
 import { Route, Switch} from "react-router-dom";
 
-
-
 function App() {
   return (
     <div className={styles.App}>
