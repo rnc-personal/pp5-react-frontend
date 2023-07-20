@@ -34,12 +34,12 @@ const SignUpForm = () => {
         } catch (err) {
             const responseErrors = err.response?.data;
             if (responseErrors) {
-              setErrors(responseErrors);
-              console.log(`Error on Submit: ${JSON.stringify(responseErrors)}`);
+                setErrors(responseErrors);
+                console.log(`Error on Submit: ${JSON.stringify(responseErrors)}`);
             } else {
-              console.log("Unknown error occurred:", err);
+                console.log("Unknown error occurred:", err);
             }
-          }
+        }
     };
 
     return (
@@ -74,8 +74,8 @@ const SignUpForm = () => {
                             <Button className={btnStyles.Button} type="submit">
                                 SUBMIT
                             </Button>
-                        </Form>
-
+                            {errors.non_field_errors?.map((message, idx) => (<p key={idx} className="mt-3">{message}</p>))}
+                          </Form>  
                     </Container>
                     <Container className={`mt-3 ${appStyles.Content}`}>
                         <Link className={styles.Link} to="/signin">
