@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
-import { CurrentUserContext } from "../App";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 import stylesNav from "../styles/MainNav.module.css"
 
 const MainNav = () => {
 
-    const currentUser = useContext(CurrentUserContext);
+    const currentUser = useCurrentUser();
 
     const loggedInMenu = <>{currentUser?.username}</>;
 
