@@ -29,6 +29,8 @@ function App() {
   }, []);
 
   return (
+    <CurrentUserContext.Provider value={currentUser}>
+    <SetCurrentUserContext.Provider value={setCurrentUser}>
     <div className={styles.App}>
       <MainNav/>
       <Container className={styles.Main} fluid>
@@ -44,6 +46,8 @@ function App() {
         </Switch>
       </Container>
 </div>
+    </SetCurrentUserContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 
