@@ -17,21 +17,21 @@ const SignUpForm = () => {
                     <Form>
                         <Form.Group controlId="username">
                             <Form.Label className="d-none">USERNAME:</Form.Label>
-                            <Form.Control type="TEXT" placeholder="USERNAME" name="username"/>
+                            <Form.Control className={styles.Input} type="TEXT" placeholder="USERNAME" name="username"/>
                         </Form.Group>
 
                         <Form.Group controlId="password-1">
                             <Form.Label className="d-none">PASSWORD</Form.Label>
-                            <Form.Control type="password-1" placeholder="SET A PASSWORD" name="password-1"/>
+                            <Form.Control className={styles.Input} type="password-1" placeholder="SET A PASSWORD" name="password-1"/>
                         </Form.Group>
 
                         <Form.Group controlId="password-2">
                             <Form.Label className="d-none">CONFIRM PASSWORD</Form.Label>
-                            <Form.Control type="password" placeholder="CONFIRM YOUR PASSWORD" name="password-2"/>
+                            <Form.Control className={styles.Input} type="password" placeholder="CONFIRM YOUR PASSWORD" name="password-2"/>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
-                            Submit
+                        <Button className={btnStyles.Button} type="submit">
+                            SUBMIT
                         </Button>
                     </Form>
 

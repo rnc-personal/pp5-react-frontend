@@ -1,0 +1,18 @@
+/* Overrides for BS */
+.Input {
+    border-radius: 0px !important;
+    text-align: center;
+    background-color: #222222 !important;
+    outline: none !important;
+    border: none!important;
+}
+
+.Input:focus {
+    border: 2px solid #d9176b !important;
+    color: #fff;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: none !important;
+}
+

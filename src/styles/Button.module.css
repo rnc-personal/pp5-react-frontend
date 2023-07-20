@@ -1,0 +1,11 @@
+ .Button {
+    width: 300px;
+    background-color: #d9176b;
+    outline: none !important;
+    border: none !important;
+    transition: all 0.5s ease-in-out;
+ }
+
+ .Button:hover {
+    background-color: #00e6d6;
+ }
