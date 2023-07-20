@@ -1,10 +1,34 @@
-import React from "react"
+import React, { useContext } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
+import { CurrentUserContext } from "../App";
+
 import stylesNav from "../styles/MainNav.module.css"
 
 const MainNav = () => {
+
+    const currentUser = useContext(CurrentUserContext);
+
+    const loggedInMenu = <>{currentUser?.username}</>;
+
+    const loggedOutMenu = (
+        <>
+            <NavLink
+                className={stylesNav.NavLink}
+                activeClassName={stylesNav.NavLinkActive}
+                to="/signin">
+                Sign in
+            </NavLink>
+            <NavLink
+                className={stylesNav.NavLink}
+                activeClassName={stylesNav.NavLinkActive}
+                to="/signup">
+                Sign up
+            </NavLink>
+        </>
+    );
+
     return (
         <Navbar expand="md" fixed="top" className={stylesNav.MainNav} >
             <Container>
@@ -23,18 +47,7 @@ const MainNav = () => {
                             to="/">
                             Home
                         </NavLink>
-                        <NavLink
-                            className={stylesNav.NavLink}
-                            activeClassName={stylesNav.NavLinkActive}
-                            to="/signin">
-                            Sign in
-                            </NavLink>
-                        <NavLink
-                            className={stylesNav.NavLink}
-                            activeClassName={stylesNav.NavLinkActive}
-                            to="/signup">
-                            Sign up
-                            </NavLink>
+                        {currentUser? loggedInMenu : loggedOutMenu}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
