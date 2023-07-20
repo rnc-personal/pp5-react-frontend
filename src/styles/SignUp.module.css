@@ -8,7 +8,7 @@
     text-align: center;
     background-color: #222222 !important;
     outline: none !important;
-    border: none!important;
+    border: none !important;
 }
 
 .Input:focus {
@@ -20,3 +20,15 @@
     box-shadow: none !important;
 }
 
+a,
+a:focus,
+a:active,
+a:visited {
+    text-decoration: none;
+    color: var(--main-accent);
+}
+
+a:hover {
+    color: var(--secondary-accent);
+    text-decoration: none;
+}

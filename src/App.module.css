@@ -47,12 +47,3 @@ p, text, input, select, textarea, label {
 }
 
   /* Bootstrap Overrides & Additions */
-a, a:focus, a:active, a:visited {
-  text-decoration: none;
-  color: var(--main-accent);
-}
-
-a:hover {
-  color: var(--secondary-accent);
-  text-decoration: none;
-}
