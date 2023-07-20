@@ -1,8 +1,10 @@
 import React from 'react';
 import MainNav from './components/MainNav';
 import Container  from 'react-bootstrap/Container';
+import SignUpForm from './pages/auth/SignUpForm';
 import styles from './App.module.css';
 import { Route, Switch} from "react-router-dom";
+import "./api/axiosDefaults";
 
 function App() {
   return (
@@ -16,9 +18,7 @@ function App() {
           <Route exact path='/signin' render={() =>
             <h1>Sign In</h1>
           } />
-          <Route exact path='/signup' render={() =>
-            <h1>Signup</h1>
-          } />
+          <Route exact path='/signup' render={() =><SignUpForm/>} />
           <Route render={() =>
             <h1>Whoops Looks You're Lost!</h1>
           } />
