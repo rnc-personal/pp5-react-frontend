@@ -1,4 +1,8 @@
- .Button {
+ .Button,
+ .Button:focus,
+ .Button:active,
+ .Button:not(:disabled),
+ .focus {
     width: 300px;
     background-color: #d9176b;
     outline: none !important;
