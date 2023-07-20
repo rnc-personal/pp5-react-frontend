@@ -9,6 +9,7 @@ import { Form, Button, Image, Col, Row, Container } from "react-bootstrap";
 
 const SignUpForm = () => {
     return (
+        <>
         <Row className={styles.Row}>
             <Col className="my-auto py-2 p-md-2" md={6}>
                 <Container className={`${appStyles.Content} p-4 `}>
@@ -42,15 +43,18 @@ const SignUpForm = () => {
                     </Link>
                 </Container>
             </Col>
+        </Row>
+        <Row className={styles.Row}>
             <Col
                 md={6}
                 className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
-            >
+                >
                 <div>
                     IMG/Cube Here
                 </div>
             </Col>
         </Row>
+        </>
     );
 };
 

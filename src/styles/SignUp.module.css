@@ -1,4 +1,8 @@
 /* Overrides for BS */
+.Row {
+    justify-content: center;
+}
+
 .Input {
     border-radius: 0px !important;
     text-align: center;
