@@ -2,13 +2,24 @@ import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import axios from "axios";
 
 import stylesNav from "../styles/MainNav.module.css"
 
 const MainNav = () => {
 
     const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+
+    const handleSignOut = async () => {
+        try {
+            await axios.post("dj-rest-auth/logout/");
+            setCurrentUser(null);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const createBuildLink = (
         <NavLink
@@ -36,6 +47,7 @@ const MainNav = () => {
                 SAVED
             </NavLink>
             <NavLink
+                onClick={handleSignOut}
                 className={stylesNav.NavLink}
                 to="/">
                 SIGN OUT
