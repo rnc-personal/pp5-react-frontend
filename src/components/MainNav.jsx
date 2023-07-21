@@ -3,6 +3,7 @@ import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import useMobileMenuToggle from "../hooks/useMobileMenuToggle";
 import axios from "axios";
 
 import stylesNav from "../styles/MainNav.module.css"
@@ -11,6 +12,8 @@ const MainNav = () => {
 
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+
+    const { expanded, setExpanded, ref } = useMobileMenuToggle();
 
     const handleSignOut = async () => {
         try {
@@ -88,7 +91,11 @@ const MainNav = () => {
 
                 {currentUser && createBuildLink}
 
-                <Navbar.Toggle aria-controls="basic-navbar-nav" className={stylesNav.NavBarToggler} />
+                <Navbar.Toggle
+                aria-controls="basic-navbar-nav"
+                className={stylesNav.NavBarToggler}
+                ref={ref}
+                onClick={() => setExpanded(!expanded)} />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
                         <NavLink
