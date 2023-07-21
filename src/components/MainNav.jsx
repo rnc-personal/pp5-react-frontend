@@ -10,7 +10,43 @@ const MainNav = () => {
 
     const currentUser = useCurrentUser();
 
-    const loggedInMenu = <>{currentUser?.username}</>;
+    const createBuildLink = (
+        <NavLink
+            className={stylesNav.NavLink}
+            activeClassName={stylesNav.NavLinkActive}
+            to="/posts/create"
+        >
+            CREATE YOUR BUILD
+        </NavLink>
+    );
+
+    const loggedInMenu =
+        <>
+            <NavLink
+                className={stylesNav.NavLink}
+                activeClassName={stylesNav.NavLinkActive}
+                to="/following">
+                LATEST
+            </NavLink>
+
+            <NavLink
+                className={stylesNav.NavLink}
+                activeClassName={stylesNav.NavLinkActive}
+                to="/liked">
+                SAVED
+            </NavLink>
+            <NavLink
+                className={stylesNav.NavLink}
+                to="/">
+                SIGN OUT
+            </NavLink>
+            <NavLink
+                className={stylesNav.NavLink}
+                to={`/profiles/${currentUser?.profile_id}`}
+            >
+                <img src={currentUser?.profile_image} text="Profile" height={40} />
+            </NavLink>
+        </>;
 
     const loggedOutMenu = (
         <>
@@ -37,6 +73,9 @@ const MainNav = () => {
                         <h1>BATTLEBOXES</h1>
                     </Navbar.Brand>
                 </NavLink>
+
+                {currentUser && createBuildLink}
+
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className={stylesNav.NavBarToggler} />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
@@ -45,9 +84,9 @@ const MainNav = () => {
                             className={stylesNav.NavLink}
                             activeClassName={stylesNav.NavLinkActive}
                             to="/">
-                            Home
+                            HOME
                         </NavLink>
-                        {currentUser? loggedInMenu : loggedOutMenu}
+                        {currentUser ? loggedInMenu : loggedOutMenu}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
