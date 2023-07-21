@@ -5,12 +5,13 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import BuildImage from '../../components/BuildImage';
 
 import Upload from "../../assets/fileupload.svg";
 
 import styles from "../../styles/CreateBuildForm.module.css";
-import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 
 function PostCreateForm() {
 
@@ -47,7 +48,7 @@ function PostCreateForm() {
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
                 >
-                  ASSET
+                  <BuildImage className={styles.Svg}src={Upload} message="Click or tap to upload your main image"/>
                 </Form.Label>
 
             </Form.Group>
