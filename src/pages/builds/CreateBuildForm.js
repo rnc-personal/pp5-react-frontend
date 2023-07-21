@@ -67,13 +67,13 @@ function PostCreateForm() {
                 </Form.Label>
 
                 <Form.Label
-                  htmlFor="image-upload-3"
+                  htmlFor="image-upload-4"
                 >
                 <BuildImage className={styles.Svg} src={Upload} message="Image 4"/>
                 </Form.Label>
 
                 <Form.Label
-                  htmlFor="image-upload-3"
+                  htmlFor="image-upload-5"
                 >
                 <BuildImage className={styles.Svg} src={Upload} message="Image 5"/>
                 </Form.Label>
