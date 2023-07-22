@@ -51,9 +51,9 @@ function PostCreateForm() {
                   <BuildImage className={styles.Svg}src={Upload} message="Click or tap to upload your main image"/>
                 </Form.Label>
 
-                {/* Additional Images */}
+                {/* Additional Images
               
-                {/* <div className={styles.GalleryUpload}>
+                <div className={styles.GalleryUpload}>
                 <Form.Label
                   htmlFor="image-upload-2"
                 >
@@ -76,12 +76,8 @@ function PostCreateForm() {
                   htmlFor="image-upload-5"
                 >
                 <BuildImage className={styles.Svg} src={Upload} message="Image 5"/>
-                </Form.Label> */}
-
-                {/* TODO: Get List of Possible Components from Models / List out */}
-
-
-                  </div>
+                </Form.Label>
+                </div> */}
 
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
