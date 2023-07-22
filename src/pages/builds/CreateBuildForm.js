@@ -83,33 +83,7 @@ function PostCreateForm() {
                 <BuildImage className={styles.Svg} src={Upload} message="Click or tap to upload your main image" />
               </Form.Label>
 
-              {/* Additional Images
-              
-                <div className={styles.GalleryUpload}>
-                <Form.Label
-                  htmlFor="image-upload-2"
-                >
-                <BuildImage className={styles.Svg} src={Upload} message="Image 2"/>
-                </Form.Label>
-
-                <Form.Label
-                  htmlFor="image-upload-3"
-                >
-                  <BuildImage className={styles.Svg} src={Upload} message="Image 3"/>
-                </Form.Label>
-
-                <Form.Label
-                  htmlFor="image-upload-4"
-                >
-                <BuildImage className={styles.Svg} src={Upload} message="Image 4"/>
-                </Form.Label>
-
-                <Form.Label
-                  htmlFor="image-upload-5"
-                >
-                <BuildImage className={styles.Svg} src={Upload} message="Image 5"/>
-                </Form.Label>
-                </div> */}
+ 
             </Form.Group>
 
             <Form.Group className="text-center">
