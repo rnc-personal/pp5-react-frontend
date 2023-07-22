@@ -46,4 +46,8 @@ p, text, input, select, textarea, label {
   font-size: 1.4rem;
 }
 
+
+.preview-image {
+  max-width: 100%;
+}
   /* Bootstrap Overrides & Additions */

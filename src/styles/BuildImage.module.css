@@ -1,5 +1,6 @@
-.Svg, img {
+.Svg {
     height: 30px;
     width: 30px;
     filter: invert(1);
 }
+
