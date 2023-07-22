@@ -28,6 +28,7 @@ function PostCreateForm() {
     build_ram: "",
     build_disk: "",
     build_gpu: "",
+    build_case: "",
     build_monitor: "",
   });
 

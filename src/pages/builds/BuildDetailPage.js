@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import Build from "./Build";
 
 function PostPage() {
 const { id } = useParams();
@@ -35,7 +36,7 @@ useEffect(() => {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
-        <p>Post component</p>
+        <Build {...build.results[0]} setBuild={setBuild}/>
         <Container className={appStyles.Content}>
           Comments
         </Container>
