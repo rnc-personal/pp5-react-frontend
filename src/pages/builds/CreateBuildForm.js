@@ -12,6 +12,7 @@ import Upload from "../../assets/fileupload.svg";
 import styles from "../../styles/CreateBuildForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import inputStyles from "../../styles/SignUp.module.css";
 
 function PostCreateForm() {
 
@@ -21,11 +22,11 @@ function PostCreateForm() {
     <div className="text-center">
       {/* Add your form fields here */}
 
-    
-    
+
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => { }}
       >
         cancel
       </Button>
@@ -43,15 +44,15 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <BuildImage className={styles.Svg}src={Upload} message="Click or tap to upload your main image"/>
-                </Form.Label>
 
-                {/* Additional Images
+              <Form.Label
+                className="d-flex justify-content-center"
+                htmlFor="image-upload"
+              >
+                <BuildImage className={styles.Svg} src={Upload} message="Click or tap to upload your main image" />
+              </Form.Label>
+
+              {/* Additional Images
               
                 <div className={styles.GalleryUpload}>
                 <Form.Label
@@ -78,8 +79,53 @@ function PostCreateForm() {
                 <BuildImage className={styles.Svg} src={Upload} message="Image 5"/>
                 </Form.Label>
                 </div> */}
-
             </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>BUILD NAME</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_name" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+            <Form.Label>TELL US ABOUT THE BUILD - PROCESS, ISSUES ETC...</Form.Label>
+              <Form.Control className={inputStyles.Input} as="textarea" rows={8} name="content" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>CPU</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_cpu" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>MOTHERBOARD</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_mobo" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>RAM</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_ram" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>STORAGE</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_disk" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>GPU</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_gpu" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>CASE</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_case" />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Form.Label>MONITOR</Form.Label>
+              <Form.Control className={inputStyles.Input} type="text" name="build_monitor" />
+            </Form.Group>
+
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
