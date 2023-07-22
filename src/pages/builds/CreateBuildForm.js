@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -48,65 +50,42 @@ function PostCreateForm() {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("build_name", build_name);
+    formData.append("content", content);
+    formData.append("build_cpu", build_cpu);
+    formData.append("build_mobo", build_mobo);
+    formData.append("build_ram", build_ram);
+    formData.append("build_disk", build_disk);
+    formData.append("build_gpu", build_gpu);
+    formData.append("build_case", build_case);
+    formData.append("build_monitor", build_monitor);
+    formData.append("main_image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/builds/", formData);
+      history.push(`/builds/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      console.log(formData);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
+  const imageInput = useRef(null);
+  const history = useHistory();
+
   const [errors, setErrors] = useState({});
 
   const textFields = (
     <div className="text-center">
       {/* Add your form fields here */}
-
-
-
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => { }}
-      >
-        cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
-      </Button>
-    </div>
-  );
-
-  return (
-    <Form>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
-
-            <Form.Group className="text-center">
-              {main_image ? (
-                <>
-                  <figure>
-                    <Image className={styles.Svg} src={main_image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className="d-none"
-                      htmlFor="image-upload"
-                    >
-                      SWAP IMAGE
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <BuildImage className={styles.Svg} src={Upload} message="Click or tap to upload your main image" />
-                </Form.Label>
-              )}
-
-              <Form.File
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                
-              />
-            </Form.Group>
-
-            <Form.Group className="text-center">
+      <Form.Group className="text-center">
               <Form.Label>BUILD NAME</Form.Label>
               <Form.Control onChange={handleChange} className={inputStyles.Input} type="text" name="build_name" value={build_name} />
             </Form.Group>
@@ -150,8 +129,55 @@ function PostCreateForm() {
               <Form.Label>MONITOR</Form.Label>
               <Form.Control onChange={handleChange} className={inputStyles.Input} type="text" name="build_monitor" value={build_monitor} />
             </Form.Group>
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        onClick={() => { }}
+      >
+        cancel
+      </Button>
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        create
+      </Button>
+    </div>
+  );
 
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Row>
+        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+          <Container className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
 
+            <Form.Group className="text-center">
+              {main_image ? (
+                <>
+                  <figure>
+                    <Image className={styles.Svg} src={main_image} rounded />
+                  </figure>
+                  <div>
+                    <Form.Label
+                      className="d-none"
+                      htmlFor="image-upload"
+                    >
+                      SWAP IMAGE
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
+                  className="d-flex justify-content-center"
+                  htmlFor="image-upload"
+                >
+                  <BuildImage className={styles.Svg} src={Upload} message="Click or tap to upload your main image" />
+                </Form.Label>
+              )}
+
+              <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
+              />
+            </Form.Group>
 
             <div className="d-md-none">{textFields}</div>
           </Container>
