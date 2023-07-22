@@ -4,7 +4,7 @@ const Build = (props) => {
 
     const {
         id,
-        owner,
+        creator,
         profile_id,
         profile_image,
         build_name,
@@ -17,7 +17,7 @@ const Build = (props) => {
         build_monitor,
         build_,
         content,
-        image,
+        main_image,
         updated_at,
         postPage,
         setPosts,
