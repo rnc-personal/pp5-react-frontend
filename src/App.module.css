@@ -29,24 +29,30 @@ body {
 h1 {
   font-weight: 800;
   font-size: 3rem;
+  text-transform: uppercase;
 }
 
 h2 {
   font-weight: 500;
   font-size: 2.4rem;
+  text-transform: uppercase;
 }
 
 h3, p  {
   font-weight: 300;
   font-size: 1.8rem;
+  text-transform: uppercase;
 }
 
-p, text, input, select, textarea, label {
+p, text, input, select, textarea, label, ul, li {
   font-weight: 200;
   font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
-
+ul, li {
+  list-style: none;
+}
 .preview-image {
   max-width: 100%;
 }
