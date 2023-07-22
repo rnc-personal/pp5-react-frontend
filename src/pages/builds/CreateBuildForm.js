@@ -91,7 +91,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_name?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -102,7 +102,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.content?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -113,7 +113,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_cpu?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -124,7 +124,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_mobo?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -135,7 +135,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_ram?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -146,7 +146,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_disk?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -157,7 +157,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_gpu?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -168,7 +168,7 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_case?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
@@ -179,19 +179,19 @@ function PostCreateForm() {
       </Form.Group>
 
       {errors?.build_monitor?.map((message, idx) => (
-        <sub variant="warning" key={idx}>
+        <sub key={idx}>
           {message}
         </sub>
       ))}
 
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        CANCEL
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+      <Button className={`${btnStyles.Button}`} type="submit">
+        CREATE BUILD
       </Button>
     </div>
   );
@@ -233,6 +233,12 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+
+            {errors?.main_image?.map((message, idx) => (
+              <sub key={idx}>
+                {message}
+              </sub>
+            ))}
 
             <div className="d-md-none">{textFields}</div>
           </Container>
