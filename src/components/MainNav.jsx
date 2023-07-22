@@ -28,7 +28,7 @@ const MainNav = () => {
         <NavLink
             className={stylesNav.NavLink}
             activeClassName={stylesNav.NavLinkActive}
-            to="/posts/create"
+            to="/builds/create"
         >
             CREATE YOUR BUILD
         </NavLink>

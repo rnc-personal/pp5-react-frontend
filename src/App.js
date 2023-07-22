@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import CreateBuildForm from './pages/builds/CreateBuildForm';
+import BuildDetailPage from './pages/builds/BuildDetailPage';
 import styles from './App.module.css';
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
@@ -21,7 +22,8 @@ function App() {
           } />
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
-          <Route exact path="/posts/create" render={() => <CreateBuildForm />} />
+          <Route exact path="/builds/create" render={() => <CreateBuildForm />} />
+          <Route exact path="/builds/:id" render={() => <BuildDetailPage />} />
           <Route render={() =>
             <h1>Whoops Looks You're Lost!</h1>
           } />
