@@ -39,10 +39,10 @@ function PostCreateForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(main_image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        main_image: URL.createObjectURL(event.target.files[0]),
       });
     }
   };

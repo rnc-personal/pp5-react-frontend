@@ -8,16 +8,18 @@
     text-align: center;
     background-color: #222222 !important;
     outline: none !important;
-    border: none !important;
+    border: 2px solid #d9176b !important;
+    transition: border 0.4s ease-in-out;
 }
 
 .Input:focus {
-    border: 2px solid #d9176b !important;
+    border: 2px solid #00e6d6 !important;
     color: #fff;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
     box-shadow: none !important;
+    transition: border 0.4s ease-in-out;
 }
 
 a,
