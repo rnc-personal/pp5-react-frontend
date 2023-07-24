@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import Build from "./Build";
 
 function BuildsList({ message, filter = "" }) {
 
@@ -19,7 +20,20 @@ function BuildsList({ message, filter = "" }) {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles mobile</p>
-                <p>List of builds here</p>
+            {hasLoaded ? (
+             <>
+             {builds.results.length ? (
+                builds.results.map(build => (
+                    <Build key={build.id} {...build} setBuilds={setBuilds}/>
+                ))
+             ) : (
+                console.log('not loaded')
+             )}
+             </>   
+            ): (
+                <p>Loading...</p>
+            )}
+
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                 <p>Popular profiles for desktop</p>
