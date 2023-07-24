@@ -28,8 +28,9 @@ function App() {
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path="/builds/create" render={() => <CreateBuildForm />} />
-          <Route exact path="/builds/" render={() => <BuildsList/>} />
+          <Route exact path="/builds" render={() => <BuildsList/>} />
           <Route exact path="/builds/:id" render={() => <BuildDetailPage message="Nothing Found!"/>} />
+          <Route exact path="/following" render={() => <BuildDetailPage message="Nothing Found!" filter={`creator__followed__creator__profile=${profile_id}&`}/>} />
           <Route render={() =>
             <h1>Whoops Looks You're Lost!</h1>
           } />
