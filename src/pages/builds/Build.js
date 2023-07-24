@@ -19,7 +19,6 @@ const Build = (props) => {
         build_gpu,
         build_case,
         build_monitor,
-        build_,
         content,
         main_image,
         updated_at,
