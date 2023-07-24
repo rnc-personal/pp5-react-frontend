@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -15,6 +16,27 @@ function BuildsList({ message, filter = "" }) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
+    useEffect(() => {
+        const fetchBuilds = async () => {
+          try {
+            // TO DO: add filter
+            const { data } = await axiosReq.get(`/builds/`);
+            setBuilds(data);
+            setHasLoaded(true);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+    
+        setHasLoaded(false);
+        const timer = setTimeout(() => {
+          fetchBuilds();
+        }, 1000);
+    
+        return () => {
+          clearTimeout(timer);
+        };
+      }, []);
 
     return (
         <Row className="h-100">
