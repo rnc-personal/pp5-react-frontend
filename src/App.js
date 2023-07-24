@@ -31,6 +31,7 @@ function App() {
           <Route exact path="/builds" render={() => <BuildsList/>} />
           <Route exact path="/builds/:id" render={() => <BuildDetailPage message="Nothing Found!"/>} />
           <Route exact path="/following" render={() => <BuildDetailPage message="Nothing Found!" filter={`creator__followed__creator__profile=${profile_id}&`}/>} />
+          <Route exact path="/following" render={() => <BuildDetailPage message="You Havent Saved Any Posts yet!" filter={`saves__creator__profile=${profile_id}&ordering=-saves__created_at&`}/>} />
           <Route render={() =>
             <h1>Whoops Looks You're Lost!</h1>
           } />
