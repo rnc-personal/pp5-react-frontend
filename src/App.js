@@ -9,8 +9,13 @@ import styles from './App.module.css';
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
 import axios from "axios";
+import BuildsList from './pages/builds/BuildsList';
+import { useCurrentUser } from './contexts/CurrentUserContext';
 
 function App() {
+
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
     <div className={styles.App}>
@@ -23,7 +28,8 @@ function App() {
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path="/builds/create" render={() => <CreateBuildForm />} />
-          <Route exact path="/builds/:id" render={() => <BuildDetailPage />} />
+          <Route exact path="/builds/" render={() => <BuildsList/>} />
+          <Route exact path="/builds/:id" render={() => <BuildDetailPage message="Nothing Found!"/>} />
           <Route render={() =>
             <h1>Whoops Looks You're Lost!</h1>
           } />
