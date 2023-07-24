@@ -46,7 +46,7 @@ const Build = (props) => {
                 </Media>
             </Card.Body>
 
-            <Link to={`/posts/${id}`}>
+            <Link to={`/builds/${id}`}>
                 <Card.Img src={main_image} alt={build_name} />
             </Link>
 
@@ -64,6 +64,7 @@ const Build = (props) => {
                     <li>Monitor: {build_monitor}</li>
                     </ul>
                 </div>
+                {/* TO DO: Comments & Saves */}
             </Card.Body>
 
         </Card>
