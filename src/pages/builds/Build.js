@@ -58,6 +58,7 @@ const Build = (props) => {
                     <ul> 
                     <li>CPU: {build_cpu}</li>
                     <li>GPU: {build_gpu}</li>
+                    <li>GPU: {build_mobo}</li>
                     <li>RAM: {build_ram}</li>
                     <li>Disk: {build_disk}</li>
                     <li>Case: {build_case}</li>
