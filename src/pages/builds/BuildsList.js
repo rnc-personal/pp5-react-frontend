@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -72,7 +73,7 @@ function BuildsList({ message, filter = "" }) {
                             dataLength={builds.results.length}
                             loader={<p>Getting Builds...</p>}
                             hasMore={!!builds.next}
-                            next={() => {}}
+                            next={() => {fetchMoreData(builds, setBuilds)}}
                             />
                         ) : (
                             <img src={noResults} alt="no results" message={message} />
