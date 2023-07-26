@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/CreateBuildForm.module.css";
 import PostPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
@@ -31,6 +31,12 @@ const Build = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === creator;
 
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+      };
+
     return (
         <Card className="bg-dark text-white">
 
@@ -42,7 +48,7 @@ const Build = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && <Popout/>}
+                        {is_owner && PostPage && <Popout handleEdit={handleEdit}/>}
                     </div>
                 </Media>
             </Card.Body>
