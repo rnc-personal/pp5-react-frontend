@@ -46,7 +46,7 @@ const MainNav = () => {
             <NavLink
                 className={stylesNav.NavLink}
                 activeClassName={stylesNav.NavLinkActive}
-                to="/liked">
+                to="/saved">
                 SAVED
             </NavLink>
             <NavLink

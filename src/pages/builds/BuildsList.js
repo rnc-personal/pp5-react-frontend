@@ -61,6 +61,7 @@ function BuildsList({ message, filter = "" }) {
 
                 {hasLoaded ? (
                     <>
+                        <h1>{builds.results.length}</h1>
                         {builds.results.length ? (
                             builds.results.map(build => (
                                 <Build key={build.id} {...build} setBuilds={setBuilds} />
