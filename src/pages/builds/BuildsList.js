@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -61,11 +62,18 @@ function BuildsList({ message, filter = "" }) {
 
                 {hasLoaded ? (
                     <>
-                        <h1>{builds.results.length}</h1>
+                        <sub>Found: {builds.results.length} Builds</sub>
                         {builds.results.length ? (
-                            builds.results.map(build => (
-                                <Build key={build.id} {...build} setBuilds={setBuilds} />
-                            ))
+                            <InfiniteScroll children={
+                                builds.results.map(build => (
+                                    <Build key={build.id} {...build} setBuilds={setBuilds} />
+                                ))
+                            }
+                            dataLength={builds.results.length}
+                            loader={<p>Getting Builds...</p>}
+                            hasMore={!!builds.next}
+                            next={() => {}}
+                            />
                         ) : (
                             <img src={noResults} alt="no results" message={message} />
                         )
