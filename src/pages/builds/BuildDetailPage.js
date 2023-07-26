@@ -48,4 +48,4 @@ useEffect(() => {
   );
 }
 
-export default PostPage;
+export default BuildPage;
