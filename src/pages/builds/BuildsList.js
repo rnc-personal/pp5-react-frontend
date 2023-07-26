@@ -15,6 +15,8 @@ function BuildsList({ message, filter = "" }) {
 
     const [builds, setBuilds] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [query, setQuery] = useState("");
+
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -43,6 +45,20 @@ function BuildsList({ message, filter = "" }) {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles mobile</p>
+
+                <Form
+                    className=""
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        className="mr-sm-2"
+                        placeholder="Search Builds"
+                    />
+                </Form>
+
                 {hasLoaded ? (
                     <>
                         {builds.results.length ? (
