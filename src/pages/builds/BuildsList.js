@@ -23,7 +23,7 @@ function BuildsList({ message, filter = "" }) {
         const fetchBuilds = async () => {
             try {
                 // TO DO: add filter
-                const { data } = await axiosReq.get(`/builds/`);
+                const { data } = await axiosReq.get(`/builds/?${filter}search=${query}`);
                 setBuilds(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -39,7 +39,7 @@ function BuildsList({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         };
-    }, []);
+    }, [filter, query, pathname]);
 
     return (
         <Row className="h-100">
