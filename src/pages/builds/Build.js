@@ -4,7 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/CreateBuildForm.module.css";
-import PostPage from './BuildDetailPage';
+import BuildPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
 
 
@@ -26,7 +26,7 @@ const Build = (props) => {
         main_image,
         updated_at,
         buildPage,
-        setPosts,
+        setBuild,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -59,7 +59,7 @@ const Build = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && <Popout handleEdit={handleEdit} handleDelete={handleDelete}/>}
+                        {is_owner && BuildPage && <Popout handleEdit={handleEdit} handleDelete={handleDelete}/>}
                     </div>
                 </Media>
             </Card.Body>

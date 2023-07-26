@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import Build from "./Build";
 
-function PostPage() {
+function BuildPage() {
 const { id } = useParams();
 const [ build , setBuild ] = useState({ results: [] });
 
