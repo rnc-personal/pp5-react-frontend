@@ -4,6 +4,7 @@ import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../../styles/CreateBuildForm.module.css";
 import PostPage from './BuildDetailPage';
+import { Popout } from '../../components/Popout';
 
 
 const Build = (props) => {
@@ -41,7 +42,7 @@ const Build = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && "..."}
+                        {is_owner && PostPage && <Popout/>}
                     </div>
                 </Media>
             </Card.Body>
