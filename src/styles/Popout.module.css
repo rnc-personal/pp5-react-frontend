@@ -9,6 +9,7 @@
   background-color: #222222;
   padding: 0.75rem;
   margin:  0.15rem 1.5rem;
+  cursor: pointer;
 }
 
 .DropdownItem {
