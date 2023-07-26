@@ -1,4 +1,5 @@
 import React from 'react'
+import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
@@ -34,7 +35,17 @@ const Build = (props) => {
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/posts/${id}/edit`);
+        history.push(`/builds/${id}/edit`);
+      };
+
+      const handleDelete = async () => {
+        alert("Are you sure you want to delete this build?");
+        try {
+          await axiosRes.delete(`/builds/${id}`);
+          history.goBack();
+        } catch (err) {
+          console.log(err);
+        }
       };
 
     return (
@@ -48,7 +59,7 @@ const Build = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && <Popout handleEdit={handleEdit}/>}
+                        {is_owner && PostPage && <Popout handleEdit={handleEdit} handleDelete={handleDelete}/>}
                     </div>
                 </Media>
             </Card.Body>
