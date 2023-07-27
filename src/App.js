@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import CreateBuildForm from './pages/builds/CreateBuildForm';
+import EditForm from './pages/builds/EditForm';
 import BuildDetailPage from './pages/builds/BuildDetailPage';
 import styles from './App.module.css';
 import { Route, Switch } from "react-router-dom";
@@ -11,6 +12,7 @@ import "./api/axiosDefaults";
 import axios from "axios";
 import BuildsList from './pages/builds/BuildsList';
 import { useCurrentUser } from './contexts/CurrentUserContext';
+
 
 function App() {
 
@@ -34,6 +36,7 @@ function App() {
           <Route exact path="/builds/create" render={() => <CreateBuildForm />} />
           <Route exact path="/builds" render={() => <BuildsList />} />
           <Route exact path="/builds/:id" render={() => <BuildDetailPage message="Nothing Found!" />} />
+          <Route exact path="/builds/:id/edit" render={() => <EditForm />} />
           <Route
             exact
             path="/following"
