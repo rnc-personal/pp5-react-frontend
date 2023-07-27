@@ -17,9 +17,9 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import inputStyles from "../../styles/SignUp.module.css";
 
-function PostCreateForm() {
+function BuildCreateForm() {
 
-  const [postData, setPostData] = useState({
+  const [buildData, setbuildData] = useState({
     build_name: "",
     content: "",
     main_image: "",
@@ -32,11 +32,11 @@ function PostCreateForm() {
     build_monitor: "",
   });
 
-  const { build_name, content, main_image, build_cpu, build_mobo, build_ram, build_disk, build_gpu, build_case, build_monitor } = postData;
+  const { build_name, content, main_image, build_cpu, build_mobo, build_ram, build_disk, build_gpu, build_case, build_monitor } = buildData;
 
   const handleChange = (event) => {
-    setPostData({
-      ...postData,
+    setbuildData({
+      ...buildData,
       [event.target.name]: event.target.value,
     });
   };
@@ -44,8 +44,8 @@ function PostCreateForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(main_image);
-      setPostData({
-        ...postData,
+      setbuildData({
+        ...buildData,
         main_image: URL.createObjectURL(event.target.files[0]),
       });
     }
@@ -252,4 +252,4 @@ function PostCreateForm() {
   );
 }
 
-export default PostCreateForm;
+export default BuildCreateForm;
