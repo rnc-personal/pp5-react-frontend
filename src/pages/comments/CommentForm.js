@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-import styles from "../../styles/CommentCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
+import styles from "../../styles/CommentForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
@@ -46,7 +45,7 @@ function CommentCreateForm(props) {
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
+            <img src={profileImage} />
           </Link>
           <Form.Control
             className={styles.Form}

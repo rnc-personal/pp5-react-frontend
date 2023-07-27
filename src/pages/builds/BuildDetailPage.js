@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-
+import CommentForm from "../comments/CommentForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -11,19 +12,23 @@ import appStyles from "../../App.module.css";
 import Build from "./Build";
 
 function BuildPage() {
-const { id } = useParams();
-const [ build , setBuild ] = useState({ results: [] });
+  const { id } = useParams();
+  const [build, setBuild] = useState({ results: [] });
 
-useEffect(() => {
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [comments, setComments] = useState({ results: [] });
+
+  useEffect(() => {
     const handleMount = async () => {
       try {
         const [{ data: build }] = await Promise.all([
-        axiosReq.get(`/builds/${id}`),
-    ]);
+          axiosReq.get(`/builds/${id}`),
+        ]);
 
         setBuild({ results: [build] });
         console.log(build)
-        
+
       } catch (err) {
         console.log(err);
       }
@@ -36,7 +41,7 @@ useEffect(() => {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
-        <Build {...build.results[0]} setBuild={setBuild} buildPage/>
+        <Build {...build.results[0]} setBuild={setBuild} buildPage />
         <Container className={appStyles.Content}>
           Comments
         </Container>
