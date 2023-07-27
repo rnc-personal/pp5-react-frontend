@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import CommentForm from "../comments/CommentForm";
+import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Col from "react-bootstrap/Col";
@@ -58,10 +59,8 @@ function BuildPage() {
           ) : null}
           {comments.results.length ? (
             comments.results.map((comment) => (
-              <sub key={comment.id}>
-                {comment.creator}: {comment.content}</sub>
-            ))
-          ) : currentUser ? (
+              <Comment key={comment.id} {...comment}/>
+          ))) : currentUser ? (
             <p>No Comments Yet</p>
           ) :
             <p>Login To Leave A Comment</p>
