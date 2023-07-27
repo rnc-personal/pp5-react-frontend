@@ -43,7 +43,17 @@ function BuildPage() {
         <p>Popular profiles for mobile</p>
         <Build {...build.results[0]} setBuild={setBuild} buildPage />
         <Container className={appStyles.Content}>
-          Comments
+          {currentUser ? (
+            <CommentForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              build={id}
+              setBuild={setBuild}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
