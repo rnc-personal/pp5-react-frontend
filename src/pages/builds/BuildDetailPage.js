@@ -59,7 +59,11 @@ function BuildPage() {
           ) : null}
           {comments.results.length ? (
             comments.results.map((comment) => (
-              <Comment key={comment.id} {...comment}/>
+              <Comment
+              key={comment.id}
+              {...comment}
+              setBuild={setBuild}
+              setComments={setComments}/>
           ))) : currentUser ? (
             <p>No Comments Yet</p>
           ) :
