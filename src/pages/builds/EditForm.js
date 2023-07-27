@@ -119,11 +119,14 @@ function PostCreateForm() {
         formData.append("build_gpu", build_gpu);
         formData.append("build_case", build_case);
         formData.append("build_monitor", build_monitor);
+
+        if (imageInput?.current?.files[0]) {
         formData.append("main_image", imageInput.current.files[0]);
+        }
 
         try {
-            const { data } = await axiosReq.post("/builds/", formData);
-            history.push(`/builds/${data.id}`);
+            await axiosReq.put(`/builds/${id}`, formData);
+            history.push(`/builds/${id}`);
         } catch (err) {
             console.log(err);
             console.log(formData);
@@ -243,7 +246,7 @@ function PostCreateForm() {
                 CANCEL
             </Button>
             <Button className={`${btnStyles.Button}`} type="submit">
-                CREATE BUILD
+                UPDATE BUILD
             </Button>
         </div>
     );
