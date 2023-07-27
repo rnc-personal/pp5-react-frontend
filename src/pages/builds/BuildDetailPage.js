@@ -22,11 +22,13 @@ function BuildPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: build }] = await Promise.all([
+        const [{ data: build }, { data: comments }] = await Promise.all([
           axiosReq.get(`/builds/${id}`),
+          axiosReq.get(`/comments/?build=${id}`),
         ]);
 
         setBuild({ results: [build] });
+        setComments(comments);
         console.log(build)
 
       } catch (err) {
@@ -54,6 +56,16 @@ function BuildPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
+          {comments.results.length ? (
+            comments.results.map((comment) => (
+              <sub key={comment.id}>
+                {comment.creator}: {comment.content}</sub>
+            ))
+          ) : currentUser ? (
+            <p>No Comments Yet</p>
+          ) :
+            <p>Login To Leave A Comment</p>
+          }
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">

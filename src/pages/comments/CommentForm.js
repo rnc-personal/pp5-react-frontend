@@ -18,7 +18,7 @@ function CommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.build("/comments/", {
+      const { data } = await axiosRes.post("/comments/", {
         content,
         build,
       });
