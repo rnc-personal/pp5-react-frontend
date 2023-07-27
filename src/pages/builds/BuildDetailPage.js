@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import CommentForm from "../comments/CommentForm";
 import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { fetchMoreData } from "../../utils/utils";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -11,6 +12,7 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import Build from "./Build";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function BuildPage() {
   const { id } = useParams();
@@ -58,13 +60,21 @@ function BuildPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map((comment) => (
-              <Comment
-              key={comment.id}
-              {...comment}
-              setBuild={setBuild}
-              setComments={setComments}/>
-          ))) : currentUser ? (
+            <InfiniteScroll children={
+              comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setBuild={setBuild}
+                  setComments={setComments}
+                />))}
+                dataLength={comments.results.length}
+                loader={<Asset spinner/>}
+                hasMore={!!comments.next}
+                next={() => fetchMoreData(comments, setComments)}
+            >
+          </InfiniteScroll>
+) : currentUser ? (
             <p>No Comments Yet</p>
           ) :
             <p>Login To Leave A Comment</p>
