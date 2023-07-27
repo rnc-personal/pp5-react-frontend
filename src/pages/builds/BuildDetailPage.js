@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import { axiosReq } from "../../api/axiosDefaults";
+
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
