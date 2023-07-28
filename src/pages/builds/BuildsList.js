@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Build from "./Build";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 import appStyles from "../../App.module.css";
 import noResults from "../../assets/not_found_sm.png";
@@ -89,8 +90,8 @@ function BuildsList({ message, filter = "" }) {
 
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-                <p>Popular profiles for desktop</p>
-            </Col>
+                <PopularProfiles/>
+                </Col>
         </Row>
     );
 }
