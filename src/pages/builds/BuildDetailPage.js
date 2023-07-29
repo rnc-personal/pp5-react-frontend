@@ -13,6 +13,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import Build from "./Build";
 import InfiniteScroll from "react-infinite-scroll-component";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function BuildPage() {
   const { id } = useParams();
@@ -45,7 +46,7 @@ function BuildPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
+        <PopularProfiles mobile />
         <Build {...build.results[0]} setBuild={setBuild} buildPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -68,13 +69,13 @@ function BuildPage() {
                   setBuild={setBuild}
                   setComments={setComments}
                 />))}
-                dataLength={comments.results.length}
-                loader={<Asset spinner/>}
-                hasMore={!!comments.next}
-                next={() => fetchMoreData(comments, setComments)}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
             >
-          </InfiniteScroll>
-) : currentUser ? (
+            </InfiniteScroll>
+          ) : currentUser ? (
             <p>No Comments Yet</p>
           ) :
             <p>Login To Leave A Comment</p>
@@ -82,7 +83,7 @@ function BuildPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
+        <PopularProfiles />
       </Col>
     </Row>
   );
