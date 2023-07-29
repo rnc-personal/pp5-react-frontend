@@ -13,7 +13,9 @@ import axios from "axios";
 import BuildsList from './pages/builds/BuildsList';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import ProfilePage from './pages/profiles/ProfilePage';
-
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
 
@@ -31,7 +33,7 @@ function App() {
             render={() =>
               <BuildsList
                 message="Nothing Found!"
-                 />} />
+              />} />
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path="/builds/create" render={() => <CreateBuildForm />} />
@@ -53,6 +55,21 @@ function App() {
               <BuildsList
                 message="You Havent Saved Any Posts yet!"
                 filter={`saves__creator__profile=${profile_id}&ordering=-saves__created_at&`} />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() =>
             <h1>Whoops Looks You're Lost!</h1>
           } />
