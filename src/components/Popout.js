@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
-
+import { useHistory } from "react-router";
 import styles from "../styles/Popout.module.css";
 
 // The forwardRef is important!!
@@ -47,3 +47,34 @@ export const Popout = ({ handleEdit, handleDelete }) => {
         </Dropdown>
     );
 };
+
+export const ProfileEditDropdown = ({ id }) => {
+    const history = useHistory();
+    return (
+      <Dropdown className="ml-auto"  drop="left">
+        <Dropdown.Toggle as={CustomToggle} />
+        <Dropdown.Menu>
+          <Dropdown.Item
+            onClick={() => history.push(`/profiles/${id}/edit`)}
+            aria-label="edit-profile"
+          >
+            <i className="fas fa-edit" /> edit profile
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => history.push(`/profiles/${id}/edit/username`)}
+            aria-label="edit-username"
+          >
+            <i className="far fa-id-card" />
+            change username
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => history.push(`/profiles/${id}/edit/password`)}
+            aria-label="edit-password"
+          >
+            <i className="fas fa-key" />
+            change password
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    );
+  };

@@ -18,6 +18,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useSetProfileData, useProfileData } from "../../contexts/ProfileDataContext";
+import { ProfileEditDropdown } from "../../components/Popout";
 
 import { Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -59,6 +60,7 @@ function ProfilePage() {
     const mainProfile = (
         <>
             <Row noGutters className="px-3 text-center">
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
                 <Col lg={3} className="text-lg-left">
                     <Image className={styles.ProfileImage} src={profile?.profile_image} />
                 </Col>
