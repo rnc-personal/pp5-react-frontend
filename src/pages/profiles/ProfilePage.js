@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 import Asset from "../../components/Asset";
 
@@ -25,6 +26,7 @@ function ProfilePage() {
     const setProfileData = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
+    const is_owner = currentUser?.username === profile?.creator;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,14 +50,48 @@ function ProfilePage() {
         <>
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
-                    <Image className={styles.ProfileImage} src={profile?.profile_image}/>
+                    <Image className={styles.ProfileImage} src={profile?.profile_image} />
                 </Col>
                 <Col lg={6}>
-                    <h3 className="m-2">Profile username</h3>
-                    <p>Profile stats</p>
+                    <h3 className="m-2">{profile?.creator}</h3>
+                    <Row className="justify-content-center no-gutters">
+                        <Col xs={3} className="my-2" >
+                            <div>
+                                COMPLETED BUILDS
+                                {profile?.builds_count}
+                            </div>
+                        </Col>
+                        <Col xs={3} className="my-2" >
+                            <div>
+                                FOLLOWERS
+                                {profile?.followers_count}
+                            </div>
+                        </Col>
+                        <Col xs={3} className="my-2" >
+                            <div>
+                                FOLLOWING
+                                {profile?.following_count}
+                            </div>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
-                    <p>Follow button</p>
+                    {currentUser && !is_owner && (
+                        profile?.following_id ? (
+                            <Button
+                                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                                onClick={() => { }}
+                            >
+                                UNFOLLOW
+                            </Button>
+                        ) : (
+                            <Button
+                                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                                onClick={() => { }}
+                            >
+                                FOLLOW
+                            </Button>
+                        ))}
                 </Col>
                 <Col className="p-3">Profile content</Col>
             </Row>
