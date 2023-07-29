@@ -16,7 +16,7 @@ import PopularProfiles from "./PopularProfiles";
 import Build from "../builds/Build";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 import { useSetProfileData, useProfileData } from "../../contexts/ProfileDataContext";
 
 import { Image } from "react-bootstrap";
