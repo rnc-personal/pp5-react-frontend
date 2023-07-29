@@ -14,7 +14,7 @@ import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import { Image } from "react-bootstrap";
@@ -28,16 +28,22 @@ function ProfilePage() {
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.creator;
 
+    const [profilePosts, setProfilePosts] = useState({ results: [] });
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [{ data: pageProfile }] = await Promise.all([
-                    axiosRes.get(`/profiles/${id}`)
+                const [{ data: pageProfile }, { data: profilePosts }] = await Promise.all([
+                    axiosReq.get(`/profiles/${id}`),
+                    axiosReq.get(`/builds/?creator__profile=${id}`),
+
                 ])
                 setProfileData(prevState => ({
                     ...prevState,
                     pageProfile: { results: [pageProfile] }
                 }))
+                setProfilePosts(profilePosts);
                 setHasLoaded(true);
             } catch (error) {
                 console.log(error);
