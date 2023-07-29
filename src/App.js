@@ -12,6 +12,7 @@ import "./api/axiosDefaults";
 import axios from "axios";
 import BuildsList from './pages/builds/BuildsList';
 import { useCurrentUser } from './contexts/CurrentUserContext';
+import ProfilePage from './pages/profiles/ProfilePage';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/builds" render={() => <BuildsList />} />
           <Route exact path="/builds/:id" render={() => <BuildDetailPage message="Nothing Found!" />} />
           <Route exact path="/builds/:id/edit" render={() => <EditForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact
             path="/following"
