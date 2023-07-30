@@ -28,9 +28,11 @@ const ProfileEditForm = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
+    country: "",
+    description: "",
     profile_image: "",
   });
-  const { name, content, profile_image } = profileData;
+  const { name, content, country, description, profile_image } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -38,9 +40,9 @@ const ProfileEditForm = () => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
-          const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, profile_image } = data;
-          setProfileData({ name, content, profile_image });
+          const { data } = await axiosReq.get(`/profiles/${id}`);
+          const { name, content, country, description, profile_image } = data;
+          setProfileData({name, content,  country, description, profile_image });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -64,14 +66,17 @@ const ProfileEditForm = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("description", description);
+    formData.append("country", country);
     formData.append("content", content);
 
     if (imageFile?.current?.files[0]) {
-      formData.append("image", imageFile?.current?.files[0]);
+      formData.append("profile_image", imageFile?.current?.files[0]);
     }
+    
 
     try {
-      const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
+      const { data } = await axiosReq.put(`profiles/${id}`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
         profile_image: data.profile_image,
@@ -86,13 +91,47 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
-          as="textarea"
+          
+          value={description}
+          onChange={handleChange}
+          name="description"
+          
+        />
+      </Form.Group>
+
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Country</Form.Label>
+        <Form.Control
+          
+          value={country}
+          onChange={handleChange}
+          name="country"
+          
+        />
+      </Form.Group>
+
+      {errors?.country?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>ABOUT</Form.Label>
+        <Form.Control
+          
           value={content}
           onChange={handleChange}
           name="content"
-          rows={7}
+          
         />
       </Form.Group>
 
@@ -101,6 +140,7 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -124,7 +164,7 @@ const ProfileEditForm = () => {
                   <Image src={profile_image} fluid />
                 </figure>
               )}
-              {errors?.image?.map((message, idx) => (
+              {errors?.profile_image?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>
@@ -145,7 +185,7 @@ const ProfileEditForm = () => {
                   if (e.target.files.length) {
                     setProfileData({
                       ...profileData,
-                      image: URL.createObjectURL(e.target.files[0]),
+                      profile_image: URL.createObjectURL(e.target.files[0]),
                     });
                   }
                 }}

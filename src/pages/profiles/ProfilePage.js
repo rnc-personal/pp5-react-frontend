@@ -31,7 +31,7 @@ function ProfilePage() {
     const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
-    const is_owner = currentUser?.username === profile?.creator;
+    const is_creator = currentUser?.username === profile?.creator;
 
     const [profileBuilds, setProfileBuilds] = useState({ results: [] });
 
@@ -59,8 +59,8 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
+            {profile?.is_creator && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center">
-            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
                 <Col lg={3} className="text-lg-left">
                     <Image className={styles.ProfileImage} src={profile?.profile_image} />
                 </Col>
@@ -88,7 +88,7 @@ function ProfilePage() {
                     </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
-                    {currentUser && !is_owner && (
+                    {currentUser && !is_creator && (
                         profile?.following_id ? (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
