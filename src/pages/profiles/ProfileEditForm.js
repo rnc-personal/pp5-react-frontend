@@ -42,7 +42,7 @@ const ProfileEditForm = () => {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
           const { name, content, country, description, profile_image } = data;
-          setProfileData({name, content,  country, description, profile_image });
+          setProfileData({ name, content, country, description, profile_image });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -73,7 +73,7 @@ const ProfileEditForm = () => {
     if (imageFile?.current?.files[0]) {
       formData.append("profile_image", imageFile?.current?.files[0]);
     }
-    
+
 
     try {
       const { data } = await axiosReq.put(`profiles/${id}`, formData);
@@ -90,18 +90,37 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <>
+
+
       <Form.Group>
-        <Form.Label>Description</Form.Label>
+        <Form.Label>NAME</Form.Label>
         <Form.Control
-          
-          value={description}
+
+          value={name}
           onChange={handleChange}
-          name="description"
-          
+          name="name"
+
         />
       </Form.Group>
 
-      {errors?.description?.map((message, idx) => (
+      {errors?.name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>ABOUT</Form.Label>
+        <Form.Control
+
+          value={content}
+          onChange={handleChange}
+          name="content"
+
+        />
+      </Form.Group>
+
+      {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -110,11 +129,11 @@ const ProfileEditForm = () => {
       <Form.Group>
         <Form.Label>Country</Form.Label>
         <Form.Control
-          
+
           value={country}
           onChange={handleChange}
           name="country"
-          
+
         />
       </Form.Group>
 
@@ -125,21 +144,22 @@ const ProfileEditForm = () => {
       ))}
 
       <Form.Group>
-        <Form.Label>ABOUT</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
-          
-          value={content}
+
+          value={description}
           onChange={handleChange}
-          name="content"
-          
+          name="description"
+
         />
       </Form.Group>
 
-      {errors?.content?.map((message, idx) => (
+      {errors?.description?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
+
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
