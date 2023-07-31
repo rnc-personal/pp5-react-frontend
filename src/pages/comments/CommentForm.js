@@ -45,7 +45,7 @@ function CommentCreateForm(props) {
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
-            <img src={profileImage} alt="user-avatar"/>
+          
           </Link>
           <Form.Control
             className={styles.Form}

@@ -7,7 +7,6 @@ import useMobileMenuToggle from "../hooks/useMobileMenuToggle";
 import axios from "axios";
 
 import stylesNav from "../styles/MainNav.module.css"
-import UserProfileImage from "./UserProfileImage";
 
 const MainNav = () => {
 
@@ -60,7 +59,7 @@ const MainNav = () => {
                 className={stylesNav.NavLink}
                 to={`/profiles/${currentUser?.profile_id}`}
             >
-                <UserProfileImage src={currentUser?.profile_image} text="Profile" height={40} />
+                <img src={currentUser?.profile_image} text="Profile" />
                 
             </NavLink>
         </>;

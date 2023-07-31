@@ -39,10 +39,10 @@ const Comment = (props) => {
             <hr />
             <Media>
                 <Link to={`/profiles/${profile_id}`}>
-                    <img src={currentUser?.profile_image} alt="user-avatar"/>
+                    <span className={styles.Owner}>{creator}</span>
                 </Link>
                 <Media.Body className="align-self-center ml-2">
-                    <span className={styles.Owner}>{creator}</span>
+                    {/* <span className={styles.Owner}>{creator}</span> */}
                     <hr/>
                     <span className={styles.Date}>{updated_at}</span>
                     {showEditForm ? (
