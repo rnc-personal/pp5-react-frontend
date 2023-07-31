@@ -5,6 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import BuildPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
+import UserProfileImage from '../../components/UserProfileImage';
 
 
 const Build = (props) => {
@@ -86,7 +87,7 @@ const Build = (props) => {
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
-                        <img src={currentUser?.profile_image}  alt="user-avatar"/>
+                        <UserProfileImage src={currentUser?.profile_image} />
                         {creator}
                     </Link>
                     <div className="d-flex align-items-center">
