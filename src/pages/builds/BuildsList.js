@@ -7,11 +7,10 @@ import { fetchMoreData } from "../../utils/utils";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+
 import Build from "./Build";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-import appStyles from "../../App.module.css";
 import noResults from "../../assets/not_found_sm.png";
 
 function BuildsList({ message, filter = "" }) {

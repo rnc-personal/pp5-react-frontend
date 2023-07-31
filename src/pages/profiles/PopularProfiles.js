@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import appStyles from '../../App.module.css'
 import { Container } from 'react-bootstrap'
-import { axiosReq } from '../../api/axiosDefaults'
-import { useCurrentUser } from '../../contexts/CurrentUserContext'
+
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Asset from '../../components/Asset'
 import Profile from "./Profile";

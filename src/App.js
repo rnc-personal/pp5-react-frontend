@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React from 'react';
 import MainNav from './components/MainNav';
 import Container from 'react-bootstrap/Container';
 import SignUpForm from './pages/auth/SignUpForm';
@@ -9,7 +9,6 @@ import BuildDetailPage from './pages/builds/BuildDetailPage';
 import styles from './App.module.css';
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
-import axios from "axios";
 import BuildsList from './pages/builds/BuildsList';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import ProfilePage from './pages/profiles/ProfilePage';

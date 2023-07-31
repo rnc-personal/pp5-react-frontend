@@ -59,7 +59,7 @@ const MainNav = () => {
                 className={stylesNav.NavLink}
                 to={`/profiles/${currentUser?.profile_id}`}
             >
-                <img src={currentUser?.profile_image} text="Profile" height={40} />
+                <img src={currentUser?.profile_image} text="Profile" alt="user-profile-avatar" height={40} />
             </NavLink>
         </>;
 

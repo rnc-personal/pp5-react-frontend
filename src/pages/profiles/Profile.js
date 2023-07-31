@@ -8,8 +8,8 @@ import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const Profile = (props) => {
-  const { profile, mobile, imageSize = 55 } = props;
-  const { id, following_id, main_image, creator } = profile;
+  const { profile, mobile } = props;
+  const { id, following_id, creator } = profile;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === creator;
@@ -22,7 +22,6 @@ const Profile = (props) => {
     >
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
-          {/* <img src={main_image} height={imageSize} /> */}
       <div className={`mx-2 ${styles.WordBreak}`}>
         <strong>{creator}</strong>
       </div>

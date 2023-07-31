@@ -3,7 +3,6 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/CreateBuildForm.module.css";
 import BuildPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
 
@@ -28,7 +27,6 @@ const Build = (props) => {
         comments_count,
         saves_count,
         save_id,
-        buildPage,
         setBuild,
     } = props;
 
@@ -88,7 +86,7 @@ const Build = (props) => {
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
-                        <img src={profile_image} height={55} />
+                        <img src={profile_image} height={55} alt="user-avatar"/>
                         {creator}
                     </Link>
                     <div className="d-flex align-items-center">
