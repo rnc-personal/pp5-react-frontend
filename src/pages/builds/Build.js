@@ -1,7 +1,7 @@
 import React from 'react'
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/CreateBuildForm.module.css";
 import BuildPage from './BuildDetailPage';
@@ -25,6 +25,9 @@ const Build = (props) => {
         content,
         main_image,
         updated_at,
+        comments_count,
+        saves_count,
+        save_id,
         buildPage,
         setBuild,
     } = props;
@@ -48,9 +51,40 @@ const Build = (props) => {
         }
       };
 
+      const handleLike = async () => {
+        try {
+          const { data } = await axiosRes.post("/saved/", { build: id });
+          setBuild((prevBuilds) => ({
+            ...prevBuilds,
+            results: prevBuilds.results.map((build) => {
+              return build.id === id
+                ? { ...build, saves_count: build.saves_count + 1, saved_id: data.id }
+                : build;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    
+      const handleUnlike = async () => {
+        try {
+          await axiosRes.delete(`/saved/${save_id}`);
+          setBuild((prevBuilds) => ({
+            ...prevBuilds,
+            results: prevBuilds.results.map((build) => {
+              return build.id === id
+                ? { ...build, saves_count: build.saves_count - 1, save_id: null }
+                : build;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
     return (
         <Card className="bg-dark text-white">
-
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
@@ -83,9 +117,32 @@ const Build = (props) => {
                     <li>Monitor: {build_monitor}</li>
                     </ul>
                 </div>
-                {/* TO DO: Comments & Saves */}
+                {is_owner ? (
+                <p>You Already have this build saved</p>
+          ) : save_id ? (
+            <span onClick={handleUnlike}>
+             UNSAVE THIS BUILD
+            </span>
+          ) : currentUser ? (
+            <span onClick={handleLike}>
+              SAVE THIS BUILD
+            </span>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to save this Build!</Tooltip>}
+            >
+              saves
+            </OverlayTrigger>
+          )}
+          <h4>
+          {`${saves_count} SAVES`}
+          </h4>
+          <Link to={`/builds/${id}`}>
+            comments
+          </Link>
+          {comments_count}
             </Card.Body>
-
         </Card>
     )
 }

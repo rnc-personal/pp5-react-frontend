@@ -117,7 +117,7 @@ function ProfilePage() {
             {profileBuilds.results.length ? (
             <InfiniteScroll 
             children={profileBuilds.results.map((build) => (
-                <Build key={build.id} {...build} setBuilds={setProfileBuilds} />
+                <Build key={build.id} {...build} setBuild={setProfileBuilds} />
               ))}
               dataLength={profileBuilds.results.length}
               loader={<Asset spinner />}

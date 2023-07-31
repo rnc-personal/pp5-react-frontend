@@ -16,7 +16,7 @@ import noResults from "../../assets/not_found_sm.png";
 
 function BuildsList({ message, filter = "" }) {
 
-    const [builds, setBuilds] = useState({ results: [] });
+    const [builds, setBuild] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const [query, setQuery] = useState("");
 
@@ -27,7 +27,7 @@ function BuildsList({ message, filter = "" }) {
             try {
                 // TO DO: add filter
                 const { data } = await axiosReq.get(`/builds/?${filter}search=${query}`);
-                setBuilds(data);
+                setBuild(data);
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -67,13 +67,13 @@ function BuildsList({ message, filter = "" }) {
                         {builds.results.length ? (
                             <InfiniteScroll children={
                                 builds.results.map(build => (
-                                    <Build key={build.id} {...build} setBuilds={setBuilds} />
+                                    <Build key={build.id} {...build} setBuild={setBuild} />
                                 ))
                             }
                             dataLength={builds.results.length}
                             loader={<p>Getting Builds...</p>}
                             hasMore={!!builds.next}
-                            next={() => {fetchMoreData(builds, setBuilds)}}
+                            next={() => {fetchMoreData(builds, setBuild)}}
                             />
                         ) : (
                             <img src={noResults} alt="no results" message={message} />
