@@ -135,9 +135,9 @@ const Build = (props) => {
               saves
             </OverlayTrigger>
           )}
-          <h4>
+          <p className='text-sm'>
           {`${saves_count} SAVES`}
-          </h4>
+          </p>
           <Link to={`/builds/${id}`}>
             comments
           </Link>

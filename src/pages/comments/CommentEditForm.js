@@ -43,10 +43,9 @@ function CommentEditForm(props) {
       <Form.Group className="pr-1">
         <Form.Control
           className={styles.Form}
-          as="textarea"
           value={formContent}
           onChange={handleChange}
-          rows={2}
+          rows={1}
         />
       </Form.Group>
       <div className="text-right">

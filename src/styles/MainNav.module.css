@@ -54,3 +54,7 @@
   filter: invert(1);
   border: none;
 }
+
+.navbar-nav {
+  align-items: center !important;
+}

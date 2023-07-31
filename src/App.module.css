@@ -28,25 +28,25 @@ body {
 
 h1 {
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 2.75rem;
   text-transform: uppercase;
 }
 
 h2 {
   font-weight: 500;
-  font-size: 2.4rem;
+  font-size: 2.25rem;
   text-transform: uppercase;
 }
 
 h3, p  {
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 
 p, text, input, select, textarea, label, ul, li {
   font-weight: 200;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
@@ -56,4 +56,12 @@ ul, li {
 .preview-image {
   max-width: 100%;
 }
-  /* Bootstrap Overrides & Additions */
+
+hr {
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+}
+
+textarea {
+  resize: none;
+}

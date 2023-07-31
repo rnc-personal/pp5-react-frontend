@@ -43,6 +43,7 @@ const Comment = (props) => {
                 </Link>
                 <Media.Body className="align-self-center ml-2">
                     <span className={styles.Owner}>{creator}</span>
+                    <hr/>
                     <span className={styles.Date}>{updated_at}</span>
                     {showEditForm ? (
                         <CommentEditForm

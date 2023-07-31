@@ -97,7 +97,7 @@ const MainNav = () => {
                 ref={ref}
                 onClick={() => setExpanded(!expanded)} />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto text-left">
+                    <Nav className="ml-auto text-left align-items-center">
                         <NavLink
                             exact
                             className={stylesNav.NavLink}
