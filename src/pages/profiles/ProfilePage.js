@@ -28,7 +28,7 @@ function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams()
-    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+    const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_creator = currentUser?.username === profile?.creator;
@@ -69,19 +69,26 @@ function ProfilePage() {
                     <Row className="justify-content-center no-gutters">
                         <Col xs={3} className="my-2" >
                             <div>
-                                COMPLETED BUILDS
+                                <p>
+                                    BUILDS:
+                                </p>
                                 {profile?.builds_count}
                             </div>
                         </Col>
                         <Col xs={3} className="my-2" >
                             <div>
-                                FOLLOWERS
+                                <p>
+                                    FOLLOWERS:
+                                </p>
+
                                 {profile?.followers_count}
                             </div>
                         </Col>
                         <Col xs={3} className="my-2" >
                             <div>
-                                FOLLOWING
+                                <p>
+                                    FOLLOWING:
+                                </p>
                                 {profile?.following_count}
                             </div>
                         </Col>
@@ -92,7 +99,7 @@ function ProfilePage() {
                         profile?.following_id ? (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                                onClick={() => { handleUnfollow(profile)}}
+                                onClick={() => { handleUnfollow(profile) }}
                             >
                                 UNFOLLOW
                             </Button>
@@ -115,20 +122,20 @@ function ProfilePage() {
             <hr />
             <p className="text-center">{profile?.creator}'s posts</p>
             {profileBuilds.results.length ? (
-            <InfiniteScroll 
-            children={profileBuilds.results.map((build) => (
-                <Build key={build.id} {...build} setBuild={setProfileBuilds} />
-              ))}
-              dataLength={profileBuilds.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!profileBuilds.next}
-              next={() => fetchMoreData(profileBuilds, setProfileBuilds)} />
+                <InfiniteScroll
+                    children={profileBuilds.results.map((build) => (
+                        <Build key={build.id} {...build} setBuild={setProfileBuilds} />
+                    ))}
+                    dataLength={profileBuilds.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!profileBuilds.next}
+                    next={() => fetchMoreData(profileBuilds, setProfileBuilds)} />
 
             ) : (
-            <Asset src={noResults}
-            message={`No results found, ${profile?.creator} hasn't posted yet.`}
-            />
-            ) 
+                <Asset src={noResults}
+                    message={`No results found, ${profile?.creator} hasn't posted yet.`}
+                />
+            )
             }
 
             <hr />
