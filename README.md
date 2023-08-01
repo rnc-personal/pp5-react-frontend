@@ -1,100 +1,178 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# "BATTLEBOXES"
 
-Welcome,
+PC Gaming has become very popular since 2020 and many Youtubers and content creators like to make videos rating their views builds so i thought a dedicated site focused on people sharing their builds and rating other peoples would be a good idea. Additionally it would provide a resource for people planning their own builds to see what other people have used and how they have performed.
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[Live Site] (https://pp5-react-frontend-be81d616c51b.herokuapp.com/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **19th April, 2023**
-
-## Codeanywhere Reminders
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
 ---
 
-Happy coding!
+## CONTENTS
 
-# Getting Started with Create React App
+* [User Stories](#user-stories)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* [Design](#design)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery](#imagery)
 
-## Available Scripts
+* [Features](#features)
+  * [General Features on Each Page](#general-features-on-each-page)
+  * [Future Implementations](#future-implementations)
+  * [Accessibility](#accessibility)
 
-In the project directory, you can run:
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
-### `npm install`
+* [Deployment & Local Development](#deployment--local-development)
+  * [Deployment](#deployment)
+  * [Local Development](#local-development)
+    * [How to Fork](#how-to-fork)
+    * [How to Clone](#how-to-clone)
 
-Installs the required npm packages.
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### User Stories
 
-### `npm test`
+An up to date list of user stories is avaialble here: [User Stories](https://github.com/users/rnc-personal/projects/3/views/1)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Design
 
-### `npm run build`
+The site makes use of a simple, clean design. The site is designed to be easy to navigate and use.
+In order to aid with develoment a modified React-Bootstrap design has been used with some defaults being overriden.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Colour Scheme
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The color scheme for the site employs a dark and high contrast theme. The site is themed around gaming PC's which often have lots of bright RGB lighting in neon colours so the dark theme is designed to make the site feel like it fits in with the theme with the content that is likely to be posted by users.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Key Colours: 
 
-### `npm run eject`
+Background: #222
+Dark, without being too dark/eye straining. This colour is used for the background of the site.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Text: #fafafa
+White, used for the text on the site. This colour is used for the text on the site. Again, consideration has been made for eye strain on a high contrast site.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Main Accent: #D9176B
+The first of the three main colors used, Bright neon pink. This colour is used for the main accent on the site, such key submit / login buttons.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Secondary Accent: #00E6D6
+Complimentary to the main accent, this colour is used for secondary accents on the site, such hover states and some smaller elements.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Tertiary Accent: #11DF6A
+Again, a neon complimentary colour to the main accent, this colour is used for tertiary accents on the site, mostly before confirming an action and is used in limited amounts.
 
-## Learn More
+### Typography
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For this project I have used the Google Gont 'Inter' as it is a modern, clean font that is easy to read and also has a slightly futuristic feel to it. I have used the font in a few different weights:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+h1: font-weight: 800;
 
-### Code Splitting
+h2: font-weight: 500;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+h3 / p:font-weight: 300;
 
-### Analyzing the Bundle Size
+p, text, input, select, textarea, label, ul, li: font-weight: 200;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### Imagery
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The imagery for the site is mostly supplied by the users of the site but for the placeholder content i have used Migjourney to genrate some placeholder images. The images are all of gaming PC's and gaming setups to fit in with the theme of the site and I have also chosen images that compliment the colour scheme for the site.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Features
+
+The site follows a similar layout and feature set to sites like Instagram or Twitter. Users can sign up to post content (PC builds they have worked on). Including all the specifications and components used. Users can also comment on other users content and save them for later. Users can also follow other users to see their content in their feed.
+
+Users can also view an individual profile page for each user to see all of their content and follow them.
+
+### Future Implementations
+
+I had hoped to add numerous features to the site but due to time constraints I have had to limit the scope of the project. I have listed some of the features I would like to add in the future below:
+
+- Home / landing page with some curated content. Managable by the site admin or based on Creation date/ ratings.
+- Add a rating system for content where users could vote on different aspects of the content (Parts chosen, looks, tidyness etc).
+
+
+## Technologies Used
+
+The project is comprised of a backend, written in Django and a frontend written in React. The frontend also makes use of React Router for routing and React Bootstrap to aid with the structure and layout of the site.
+Both are hosted on Heroku and the database is hosted on ElephantSQL remotely and a CDN is used for hosting images (Cloudinary).
+
+### Languages Used
+- Python
+- JavaScript
+- React/JSX
+- CSS
+
+### Frameworks, Libraries & Programs Used
+
+- Django
+- JWT for Django
+- React Router
+- React Bootstrap
+- Google Fonts
+- Cloudinary
+
+## Deployment & Local Development
+
+The project can be run locally using npm start dev. Please note that due to an OpenSSL issue with Node 18. You will need to change Node versions to 16 for the project to work locally. When the project first loads it will try to initialise and start the local server but will produce an error.
+
+Please run the following in the terminal:
+nvm install 16
+nvm use 16
+
+Then run npm start dev again and the project should load correctly.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Both projects are deployed to Heroku via the Github integrations. Once you have the project files, please commit them both to their own new repositories and connect them to Heroku via the Github integration. You will need to set the following config vars in Heroku for the Django App:
 
-### `npm run build` fails to minify
+CLIENT_ORIGIN_DEV: If you are using gitpod or similar online IDE you will need to add the URL of your development preview here (e.g. https://8000-brown-otter-7j5j2j7b.ws-eu03.gitpod.io)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+CLOUDINARY_API_KEY: This is the API key for your Cloudinary account, available in the dashboard.
+CLOUDINARY_NAME: This is the name of your Cloudinary account, available in the dashboard.
+CLOUDINARY_SECRET: This is the secret for your Cloudinary account, available in the dashboard.
+CLOUDINARY_URL: This is the URL for your Cloudinary account, available in the dashboard.
+
+DATABASE_URL: This is the URL for your ElephantSQL database, available in the dashboard.
+
+DISABLE_COLLECTSTATIC: Set to 1 to disable collectstatic and use Cloudinary for hosting assets. Please disable in production only.
+
+CLIENT_ORIGIN: "The URL for the deployed React App in heroku" (e.g. https://rnc-personal-react.herokuapp.com)
+**Only avaialble after deployment** 
+
+ALLOWED_HOST: "The URL for the deployed Django App in heroku" (e.g. https://rnc-personal-django.herokuapp.com) 
+**Only avaialble after deployment** 
+
+SECRET_KEY: THis is the secret key for your Django app. You can generate one here: https://miniwebtool.com/django-secret-key-generator/
+
+#### How to Fork
+
+You can fork either project by clicking the fork button in the top right of the repository page. This will create a copy of the project in your own github account. You can then clone the project to your local machine and make any changes you wish.
+
+#### How to Clone
+
+You can clone either project by clicking the green code button in the top right of the repository page. This will open a dropdown with the option to clone the project using HTTPS or SSH. Copy the link for the method you wish to use and then in your terminal navigate to the folder you wish to clone the project to and run the following command:
+
+```bash
+git clone <link>
+``` 
+
+### Content
+
+All of the site content mostly relates to PC components so I was able to scrape some popular parts and data from pcppartpicker.com. I have additional written some of the "fluff" content for the site myself.
+
+###  Media
+
+All Images were generated by Midjourney V5
+  
+###  Acknowledgments
+
+I found the React part of this project exceptionally difficult due to the number of new concepts I had to take onboard and did not find the teaching resources provided by the course to be sufficient in helping me to understand them well. I was advised to use the walkthrough as a guide as well as my own notes I had taken during the moments walkthrough. I have tried to add and expand on the example code as much as I was able to but do not feel that I am that comfortable with many of the concepts used in the teaching material and will peronally be taking some more time with React. I enquired about an extension for this project due to the above as well as some additional time and external personal issues during the project timeline. 
