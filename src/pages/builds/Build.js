@@ -1,7 +1,7 @@
 import React from 'react'
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import BuildPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
@@ -127,12 +127,9 @@ const Build = (props) => {
               SAVE THIS BUILD
             </span>
           ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to save this Build!</Tooltip>}
-            >
+            <p>
               saves
-            </OverlayTrigger>
+            </p>
           )}
           <p className='text-sm'>
           {`${saves_count} SAVES`}
