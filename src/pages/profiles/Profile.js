@@ -21,7 +21,7 @@ const Profile = (props) => {
 
   return (
     <div className={`my-3 d-flex align-items-center flex-column ${styles.ProfileCard}`}>
-      <Image className={profileStyles.ProfileImage} src={profile?.profile_image} fluid roundedCircle />
+      <Image className={profileStyles.ProfileImage} src={profile?.profile_image} fluid rounded/>
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
           <div className={`mx-2 ${styles.WordBreak}`}>
