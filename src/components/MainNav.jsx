@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
@@ -13,7 +13,14 @@ const MainNav = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
-    const { expanded, setExpanded, ref } = useMobileMenuToggle();
+    //const { expanded, setExpanded, ref } = useMobileMenuToggle();
+
+    const [expanded, setExpanded] = useState(false);
+    const ref = useMobileMenuToggle(expanded, setExpanded);
+  
+    const toggleMenu = () => {
+      setExpanded(!expanded);
+    };
 
     const handleSignOut = async () => {
         try {
@@ -57,13 +64,7 @@ const MainNav = () => {
                 to="/">
                 SIGN OUT
             </NavLink>
-            <NavLink
-                className={stylesNav.NavLink}
-                to={`/profiles/${currentUser?.profile_id}`}
-            >
-                <img src={currentUser?.profile_image} text="Profile" />
 
-            </NavLink>
         </>;
 
     const loggedOutMenu = (
@@ -92,13 +93,18 @@ const MainNav = () => {
                     </Navbar.Brand>
                 </NavLink>
 
+                
                 <Navbar.Toggle
-                    aria-controls="basic-navbar-nav"
                     className={stylesNav.NavBarToggler}
                     ref={ref}
-                    onClick={() => setExpanded(!expanded)} />
+                    onClick={toggleMenu}
+                    aria-controls="basic-navbar-nav"
+                    aria-expanded={expanded? "expanded": "collapsed"}
+                />
+                
+                 {expanded && (
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto text-left align-items-center">
+                    <Nav className="ml-auto text-left align-items-center"  >
                         <NavLink
                             exact
                             className={stylesNav.NavLink}
@@ -109,6 +115,7 @@ const MainNav = () => {
                         {currentUser ? loggedInMenu : loggedOutMenu}
                     </Nav>
                 </Navbar.Collapse>
+                 )}
             </Container>
             <RGBBar className={stylesNav.RGBBar} />
         </Navbar>
