@@ -18,7 +18,7 @@
 
 .InfoText {
     font-weight: 400;
-    color: var(--main-accent);
+    color: var(--text);
 }
 
 .ActionLink {
@@ -26,7 +26,8 @@
 }
 
 .ActionLink:hover {
-    color: var(--secondary-accent);
+    color: var(--main-accent);
+    
 }
 
 .CommentDivider {
