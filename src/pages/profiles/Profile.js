@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "../../styles/Profile.module.css";
+import profileStyles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 
 import { Button } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const Profile = (props) => {
@@ -14,21 +16,20 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === creator;
 
-  const {handleFollow} = useSetProfileData()
-  const {handleUnfollow} = useSetProfileData()
+  const { handleFollow } = useSetProfileData()
+  const { handleUnfollow } = useSetProfileData()
 
   return (
-    <div
-      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
-    >
+    <div className={`my-3 d-flex align-items-center flex-column ${styles.ProfileCard}`}>
+      <Image className={profileStyles.ProfileImage} src={profile?.profile_image} fluid roundedCircle />
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
-      <div className={`mx-2 ${styles.WordBreak}`}>
-        <strong>{creator}</strong>
-      </div>
+          <div className={`mx-2 ${styles.WordBreak}`}>
+            <strong>{creator}</strong>
+          </div>
         </Link>
       </div>
-      <div className={`text-right ${!mobile && "ml-auto"}`}>
+      <div className="text-center">
         {!mobile &&
           currentUser &&
           !is_owner &&

@@ -62,7 +62,7 @@ function ProfilePage() {
             {profile?.is_creator && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center justify-content-center">
                 <Col lg={3} className="text-lg-left">
-                    <Image className={styles.ProfileImage} src={profile?.profile_image} />
+                    <Image className={styles.ProfileImage} src={profile?.profile_image} roundedCircle />
                 </Col>
                 <Col lg={6}>
                     <h3 className="m-2">{profile?.creator}</h3>
