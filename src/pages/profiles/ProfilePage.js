@@ -120,7 +120,7 @@ function ProfilePage() {
     const mainProfilePosts = (
         <>
             <hr />
-            <p className="text-center">{profile?.creator}'s posts</p>
+            <p className="text-center">{profile?.creator}'s builds</p>
             {profileBuilds.results.length ? (
                 <InfiniteScroll
                     children={profileBuilds.results.map((build) => (
