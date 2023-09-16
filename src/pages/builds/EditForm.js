@@ -13,6 +13,7 @@ import BuildImage from '../../components/BuildImage';
 import Upload from "../../assets/fileupload.svg";
 
 import styles from "../../styles/CreateBuildForm.module.css";
+import imgStyles from "../../styles/BuildImage.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import inputStyles from "../../styles/SignUp.module.css";
@@ -261,7 +262,7 @@ function PostCreateForm() {
                             {main_image ? (
                                 <>
                                     <figure>
-                                        <Image className={styles.Svg} src={main_image} rounded />
+                                    <Image className={imgStyles.ImgUpload} src={main_image} rounded />
                                     </figure>
                                     <div>
                                         <Form.Label
