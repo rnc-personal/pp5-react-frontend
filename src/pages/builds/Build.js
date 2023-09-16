@@ -7,7 +7,7 @@ import BuildPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
 
 import styles from '../../styles/BuildDetail.module.css';
-
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 const Build = (props) => {
   const {
@@ -121,31 +121,66 @@ const Build = (props) => {
         <hr />
         <div className={styles.InfoWrapper}>
 
-        {is_owner ? (
-          <p>You Already have this build saved</p>
+          {is_owner ? (
+            <p>You Already have this build saved</p>
           ) : save_id ? (
             <span onClick={handleUnlike}>
-            UNSAVE THIS BUILD
-          </span>
-        ) : currentUser ? (
-          <span onClick={handleLike}>
-            SAVE THIS BUILD
-          </span>
-        ) : (
-          <p>
-            saves
+              <Player
+                style={{ height: '60px', width: '60px' }}
+                src="https://lottie.host/438c676f-e32f-43de-b8d2-35d96a20bb27/3NxOp9eaJZ.json"
+                className='player'
+                loop
+                autoplay
+                speed={1}
+              />
+              UNSAVE THIS BUILD
+            </span>
+          ) : currentUser ? (
+            <span onClick={handleLike}>
+              <Player
+                style={{ height: '60px', width: '60px' }}
+                src="https://lottie.host/c00eb3b8-7360-4d38-949e-d187b7fd681f/cn0JQNmpCD.json"
+                className='player'
+                loop
+                autoplay
+                speed={1}
+              />
+              <span className={styles.CommentLink}>
+                SAVE THIS BUILD
+              </span>
+            </span>
+          ) : (
+            <p>
+              saves
+            </p>
+          )}
+
+          <p className='text-sm'>
+            <Player
+              style={{ height: '60px', width: '60px' }}
+              src="https://lottie.host/bf6bfa0f-58ad-4338-a749-bf92aedad413/lVeLTIZ8fP.json"
+              className='player'
+              loop
+              autoplay
+              speed={1}
+            />
+            {`${saves_count} SAVES`}
           </p>
-        )}
 
-        <p className='text-sm'>
-          {`${saves_count} SAVES`}
-        </p>
+          <Link to={`/builds/${id}`}>
+            <Player
+              style={{ height: '60px', width: '60px' }}
+              src="https://lottie.host/2828ad73-ac2d-4910-ab0c-9b5b998a231d/9iggnk7HKG.json"
+              className='player'
+              loop
+              autoplay
+              speed={1}
+            />
 
-        <Link to={`/builds/${id}`}>
-          <span className={styles.CommentLink}>
-            {comments_count + " COMMENTS"}
-          </span>
-        </Link>
+            <span className={styles.CommentLink}>
+              {comments_count + " COMMENTS"}
+            </span>
+          </Link>
         </div>
 
       </Card.Body>
