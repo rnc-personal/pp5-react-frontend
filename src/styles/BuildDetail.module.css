@@ -19,3 +19,8 @@
 .CommentLink:hover {
     color: var(--secondary-accent);
 }
+
+.CommentDivider {
+    margin: 1.25rem;
+    background-color: var(--main-accent);
+}

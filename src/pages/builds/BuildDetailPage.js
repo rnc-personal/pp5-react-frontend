@@ -11,6 +11,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import styles from '../../styles/BuildDetail.module.css';
 import Build from "./Build";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PopularProfiles from "../profiles/PopularProfiles";
@@ -61,20 +62,26 @@ function BuildPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            <InfiniteScroll children={
-              comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  setBuild={setBuild}
-                  setComments={setComments}
-                />))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            >
-            </InfiniteScroll>
+            <>
+            <hr className={styles.CommentDivider} />
+              <h3>
+                Comments
+              </h3>
+              <InfiniteScroll children={
+                comments.results.map((comment) => (
+                  <Comment
+                    key={comment.id}
+                    {...comment}
+                    setBuild={setBuild}
+                    setComments={setComments}
+                  />))}
+                dataLength={comments.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!comments.next}
+                next={() => fetchMoreData(comments, setComments)}
+              >
+              </InfiniteScroll>
+            </>
           ) : currentUser ? (
             <p>No Comments Yet</p>
           ) :
