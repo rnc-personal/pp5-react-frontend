@@ -84,7 +84,7 @@ const Build = (props) => {
   };
 
   return (
-    <Card className="bg-dark text-white">
+    <Card className="bg-dark text-white my-5">
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
