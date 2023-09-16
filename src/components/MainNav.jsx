@@ -62,7 +62,7 @@ const MainNav = () => {
                 to={`/profiles/${currentUser?.profile_id}`}
             >
                 <img src={currentUser?.profile_image} text="Profile" />
-                
+
             </NavLink>
         </>;
 
@@ -93,10 +93,10 @@ const MainNav = () => {
                 </NavLink>
 
                 <Navbar.Toggle
-                aria-controls="basic-navbar-nav"
-                className={stylesNav.NavBarToggler}
-                ref={ref}
-                onClick={() => setExpanded(!expanded)} />
+                    aria-controls="basic-navbar-nav"
+                    className={stylesNav.NavBarToggler}
+                    ref={ref}
+                    onClick={() => setExpanded(!expanded)} />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left align-items-center">
                         <NavLink
