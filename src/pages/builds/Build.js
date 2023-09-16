@@ -51,7 +51,7 @@ const Build = (props) => {
     }
   };
 
-  const handleLike = async () => {
+  const handleSave = async () => {
     try {
       const { data } = await axiosRes.post("/saved/", { build: id });
       setBuild((prevBuilds) => ({
@@ -67,7 +67,7 @@ const Build = (props) => {
     }
   };
 
-  const handleUnlike = async () => {
+  const handleUnsave = async () => {
     try {
       await axiosRes.delete(`/saved/${save_id}`);
       setBuild((prevBuilds) => ({
@@ -124,26 +124,27 @@ const Build = (props) => {
           {is_owner ? (
             <p>You Already have this build saved</p>
           ) : save_id ? (
-            <span onClick={handleUnlike}>
+            <span onClick={handleUnsave}>
               <Player
                 style={{ height: '60px', width: '60px' }}
                 src="https://lottie.host/438c676f-e32f-43de-b8d2-35d96a20bb27/3NxOp9eaJZ.json"
                 className='player'
                 loop
                 autoplay
-                speed={1}
+                direction="-1"
+                speed={0.5}
               />
               UNSAVE THIS BUILD
             </span>
           ) : currentUser ? (
-            <span onClick={handleLike}>
+            <span onClick={handleSave}>
               <Player
                 style={{ height: '60px', width: '60px' }}
                 src="https://lottie.host/c00eb3b8-7360-4d38-949e-d187b7fd681f/cn0JQNmpCD.json"
                 className='player'
                 loop
                 autoplay
-                speed={1}
+                speed={0.5}
               />
               <span className={styles.CommentLink}>
                 SAVE THIS BUILD
