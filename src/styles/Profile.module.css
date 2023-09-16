@@ -11,6 +11,7 @@
     box-sizing: border-box;
     border: 4px solid transparent; 
     transition: border-color .4s ease-in-out; 
+    min-width: 25%;
 }
 
 .ProfileCard:hover {
