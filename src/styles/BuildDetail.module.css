@@ -4,19 +4,28 @@
     gap: 1.5rem;
 }
 
+.InfoWrapper p {
+    max-width: 25%;
+}
+
 @media screen and (max-width:767px) {
     .InfoWrapper {
         flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
     }
 }
 
-.CommentLink {
-    cursor: pointer;
+.InfoText {
+    font-weight: 400;
     color: var(--main-accent);
 }
 
-.CommentLink:hover {
+.ActionLink {
+    cursor: pointer;
+}
+
+.ActionLink:hover {
     color: var(--secondary-accent);
 }
 

@@ -122,7 +122,22 @@ const Build = (props) => {
         <div className={styles.InfoWrapper}>
 
           {is_owner ? (
-            <p>You Already have this build saved</p>
+            <>
+              <span>
+                <Player
+                  style={{ height: '60px', width: '60px' }}
+                  src="https://lottie.host/5248049a-bfbc-4d28-8a5d-116ee59f38d9/Vhq6wYKNHT.json"
+                  className='player'
+                  autoplay
+                  loop
+                  direction="1"
+                  speed={0.25}
+                />
+                <span className={styles.InfoText}>
+                  YOUR BUILD
+                </span>
+              </span>
+            </>
           ) : save_id ? (
             <span onClick={handleUnsave}>
               <Player
@@ -134,8 +149,8 @@ const Build = (props) => {
                 direction="-1"
                 speed={0.5}
               />
-              <span className={styles.CommentLink}>
-              UNSAVE THIS BUILD
+              <span className={`${styles.InfoText} ${styles.ActionLink}`}>
+                UNSAVE THIS BUILD
               </span>
             </span>
           ) : currentUser ? (
@@ -148,7 +163,7 @@ const Build = (props) => {
                 autoplay
                 speed={0.5}
               />
-              <span className={styles.CommentLink}>
+              <span className={`${styles.InfoText} ${styles.ActionLink}`}>
                 SAVE THIS BUILD
               </span>
             </span>
@@ -158,14 +173,14 @@ const Build = (props) => {
             </p>
           )}
 
-          <p className='text-sm'>
+          <p className={styles.InfoText}>
             <Player
               style={{ height: '60px', width: '60px' }}
               src="https://lottie.host/bf6bfa0f-58ad-4338-a749-bf92aedad413/lVeLTIZ8fP.json"
               className='player'
               loop
               autoplay
-              speed={1}
+              speed={0.5}
             />
             {`${saves_count} SAVES`}
           </p>
@@ -180,7 +195,7 @@ const Build = (props) => {
               speed={1}
             />
 
-            <span className={styles.CommentLink}>
+            <span className={`${styles.InfoText} ${styles.ActionLink}`}>
               {comments_count + " COMMENTS"}
             </span>
           </Link>
