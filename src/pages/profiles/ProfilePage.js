@@ -60,7 +60,7 @@ function ProfilePage() {
     const mainProfile = (
         <>
             {profile?.is_creator && <ProfileEditDropdown id={profile?.id} />}
-            <Row noGutters className="px-3 text-center">
+            <Row noGutters className="px-3 text-center justify-content-center">
                 <Col lg={3} className="text-lg-left">
                     <Image className={styles.ProfileImage} src={profile?.profile_image} />
                 </Col>
@@ -94,7 +94,7 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
-                <Col lg={3} className="text-lg-right">
+                
                     {currentUser && !is_creator && (
                         profile?.following_id ? (
                             <Button
@@ -111,7 +111,7 @@ function ProfilePage() {
                                 FOLLOW
                             </Button>
                         ))}
-                </Col>
+                
                 {profile?.content && <Col className="p-3">{profile.content}</Col>}
             </Row>
         </>
