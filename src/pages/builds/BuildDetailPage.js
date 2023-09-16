@@ -63,7 +63,7 @@ function BuildPage() {
           ) : null}
           {comments.results.length ? (
             <>
-            <hr className={styles.CommentDivider} />
+            <hr className={styles.AccentDivider} />
               <h3>
                 Comments
               </h3>
