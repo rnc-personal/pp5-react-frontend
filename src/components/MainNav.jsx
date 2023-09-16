@@ -36,6 +36,8 @@ const MainNav = () => {
 
     const loggedInMenu =
         <>
+            {currentUser && createBuildLink}
+
             <NavLink
                 className={stylesNav.NavLink}
                 activeClassName={stylesNav.NavLinkActive}
@@ -89,8 +91,6 @@ const MainNav = () => {
                         <h1>BATTLEBOXES</h1>
                     </Navbar.Brand>
                 </NavLink>
-
-                {currentUser && createBuildLink}
 
                 <Navbar.Toggle
                 aria-controls="basic-navbar-nav"
