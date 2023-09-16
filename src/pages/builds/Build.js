@@ -118,10 +118,13 @@ const Build = (props) => {
           </ul>
         </div>
 
+        <hr />
+        <div className={styles.InfoWrapper}>
+
         {is_owner ? (
           <p>You Already have this build saved</p>
-        ) : save_id ? (
-          <span onClick={handleUnlike}>
+          ) : save_id ? (
+            <span onClick={handleUnlike}>
             UNSAVE THIS BUILD
           </span>
         ) : currentUser ? (
@@ -133,7 +136,7 @@ const Build = (props) => {
             saves
           </p>
         )}
-        
+
         <p className='text-sm'>
           {`${saves_count} SAVES`}
         </p>
@@ -143,6 +146,7 @@ const Build = (props) => {
             {comments_count + " COMMENTS"}
           </span>
         </Link>
+        </div>
 
       </Card.Body>
     </Card>

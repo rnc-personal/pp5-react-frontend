@@ -1,3 +1,16 @@
+.InfoWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+@media screen and (max-width:767px) {
+    .InfoWrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 .CommentLink {
     cursor: pointer;
     color: var(--main-accent);
