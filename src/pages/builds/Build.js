@@ -58,7 +58,7 @@ const Build = (props) => {
         ...prevBuilds,
         results: prevBuilds.results.map((build) => {
           return build.id === id
-            ? { ...build, saves_count: build.saves_count + 1, saved_id: data.id }
+            ? { ...build, saves_count: build.saves_count + 1, save_id: data.id }
             : build;
         }),
       }));
@@ -134,7 +134,9 @@ const Build = (props) => {
                 direction="-1"
                 speed={0.5}
               />
+              <span className={styles.CommentLink}>
               UNSAVE THIS BUILD
+              </span>
             </span>
           ) : currentUser ? (
             <span onClick={handleSave}>
