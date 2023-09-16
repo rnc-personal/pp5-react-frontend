@@ -17,5 +17,8 @@
     cursor: pointer;
     background-color: #11DF6A;
     color: white;
-    
+  }
+
+  .Button:disabled {
+    cursor: not-allowed;
   }
