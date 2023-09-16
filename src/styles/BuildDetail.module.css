@@ -1,0 +1,8 @@
+.CommentLink {
+    cursor: pointer;
+    color: var(--main-accent);
+}
+
+.CommentLink:hover {
+    color: var(--secondary-accent);
+}
