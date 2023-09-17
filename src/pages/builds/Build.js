@@ -49,7 +49,11 @@ const Build = (props) => {
 
   const history = useHistory();
 
+  // Define all of these as props above to get them from the DB
   const imagesGallery = [img1, img2, img3, img4, img5, img6, img7, img8];
+  // Create an array of all of the images in the gallery to then pass to the prop
+  //const updatedAllImages = [...allImages, ...imagesGallery];
+
 
   const handleEdit = () => {
     history.push(`/builds/${id}/edit`);
