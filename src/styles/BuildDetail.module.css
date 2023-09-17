@@ -1,3 +1,8 @@
+.InfoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .InfoWrapper {
     display: flex;
     justify-content: center;
@@ -8,13 +13,20 @@
     max-width: 25%;
 }
 
-@media screen and (max-width:767px) {
-    .InfoWrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
+.InfoGridRow {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    align-items: stretch;
+    align-content: space-around;
 }
+
+.InfoTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0 1.25rem;
+}
+
 
 .InfoText {
     font-weight: 400;
@@ -25,7 +37,7 @@
     cursor: pointer;
 }
 
-.ActionLink:hover {
+.SpecText, .ActionLink:hover {
     color: var(--main-accent);
     
 }
@@ -33,4 +45,22 @@
 .AccentDivider {
     margin: 1.25rem;
     background-color: var(--main-accent);
+}
+@media screen and (max-width:767px) {
+    .InfoWrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .InfoGridRow {
+        grid-template-columns: 1fr;
+        align-items: start;
+        justify-content: center;
+    }
+}
+@media screen and (max-width:999px) {
+    .InfoContainer {
+        grid-template-columns: 1fr;
+    }
 }

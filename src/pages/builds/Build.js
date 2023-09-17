@@ -104,23 +104,58 @@ const Build = (props) => {
 
       <Card.Body>
         {build_name && <h2 className="text-center">{build_name}</h2>}
-        {content && <h3>{content}</h3>}
+        {content && <p>{content}</p>}
         <span className="text-muted">{updated_at}</span>
-        <div>
-          <ul>
-            <li>CPU: {build_cpu}</li>
-            <li>GPU: {build_gpu}</li>
-            <li>MOBO: {build_mobo}</li>
-            <li>RAM: {build_ram}</li>
-            <li>Disk: {build_disk}</li>
-            <li>Case: {build_case}</li>
-            <li>Monitor: {build_monitor}</li>
-          </ul>
+        <div className={styles.InfoContainer}>
+          <table className={styles.InfoTable}>
+            <h3 className={styles.InfoText}>SPECS</h3>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>CPU:</td>
+              <td>{build_cpu}</td>
+            </tr>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>GPU:</td>
+              <td>{build_gpu}</td>
+            </tr>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>MOBO:</td>
+              <td>{build_mobo}</td>
+            </tr>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>RAM:</td>
+              <td>{build_ram}</td>
+            </tr>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>DISK:</td>
+              <td>{build_disk}</td>
+            </tr>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>CASE:</td>
+              <td>{build_case}</td>
+            </tr>
+            <tr className={styles.InfoGridRow}>
+              <td className={styles.SpecText}>MONITOR:</td>
+              <td>{build_monitor}</td>
+            </tr>
+          </table>
+
+          <div className={styles.InfoTable}>
+            <h3 className={styles.InfoText}>RATINGS</h3>
+            <label for="rating-1">RATING:</label>
+            <progress id="rating-1" value="50" max="100"></progress>
+            <label for="rating-2">RATING:</label>
+            <progress id="rating-2" value="30" max="100"></progress>
+            <label for="rating-3">RATING:</label>
+            <progress id="rating-3" value="95" max="100"></progress>
+            <label for="rating-4">RATING:</label>
+            <progress id="rating-4" value="68" max="100"></progress>
+            <label for="rating-5">RATING:</label>
+            <progress id="rating-5" value="27" max="100"></progress>
+          </div>
         </div>
-
         <hr />
-        <div className={styles.InfoWrapper}>
 
+        <div className={styles.InfoWrapper}>
           {is_owner ? (
             <>
               <span>
