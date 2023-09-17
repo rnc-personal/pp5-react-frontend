@@ -8,6 +8,17 @@ import { Popout } from '../../components/Popout';
 
 import styles from '../../styles/BuildDetail.module.css';
 import { Player } from '@lottiefiles/react-lottie-player';
+import BuildGallery from '../../components/BuildGallery';
+
+import img1 from '../../assets/1.png'
+import img2 from '../../assets/2.png'
+import img3 from '../../assets/3.png'
+import img4 from '../../assets/4.png'
+import img5 from '../../assets/5.png'
+import img6 from '../../assets/6.png'
+import img7 from '../../assets/7.png'
+import img8 from '../../assets/8.png'
+
 
 const Build = (props) => {
   const {
@@ -30,12 +41,15 @@ const Build = (props) => {
     saves_count,
     save_id,
     setBuild,
+    allImages
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === creator;
 
   const history = useHistory();
+
+  const imagesGallery = [img1, img2, img3, img4, img5, img6, img7, img8];
 
   const handleEdit = () => {
     history.push(`/builds/${id}/edit`);
@@ -98,9 +112,7 @@ const Build = (props) => {
         </Media>
       </Card.Body>
 
-      <Link to={`/builds/${id}`}>
-        <Card.Img src={main_image} alt={build_name} />
-      </Link>
+      <BuildGallery id={id} allImages={imagesGallery} alt={build_name} />
 
       <Card.Body>
         {build_name && <h2 className="text-center">{build_name}</h2>}

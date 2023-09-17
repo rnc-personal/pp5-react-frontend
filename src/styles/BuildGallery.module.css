@@ -1,0 +1,22 @@
+.MainImageWrapper {
+
+}
+.GalleryWrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.25rem;
+}
+
+.GalleryWrapper img {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.GalleryWrapper img:hover {
+    opacity: 1;
+}
+
+.MainImage {
+    width: 100%;
+    margin-bottom: 20px;
+}
