@@ -7,7 +7,7 @@ import BuildPage from './BuildDetailPage';
 import { Popout } from '../../components/Popout';
 
 import styles from '../../styles/BuildDetail.module.css';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const Build = (props) => {
   const {
