@@ -3,7 +3,6 @@ import { Container, Navbar, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import RGBBar from '../components/RGBBar';
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
-import useMobileMenuToggle from "../hooks/useMobileMenuToggle";
 import axios from "axios";
 
 import stylesNav from "../styles/MainNav.module.css"
@@ -12,15 +11,6 @@ const MainNav = () => {
 
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
-
-    //const { expanded, setExpanded, ref } = useMobileMenuToggle();
-
-    const [expanded, setExpanded] = useState(false);
-    const ref = useMobileMenuToggle(expanded, setExpanded);
-  
-    const toggleMenu = () => {
-      setExpanded(!expanded);
-    };
 
     const handleSignOut = async () => {
         try {
@@ -96,13 +86,10 @@ const MainNav = () => {
                 
                 <Navbar.Toggle
                     className={stylesNav.NavBarToggler}
-                    ref={ref}
-                    onClick={toggleMenu}
                     aria-controls="basic-navbar-nav"
-                    aria-expanded={expanded? "expanded": "collapsed"}
                 />
                 
-                 {expanded && (
+                 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left align-items-center"  >
                         <NavLink
@@ -115,7 +102,7 @@ const MainNav = () => {
                         {currentUser ? loggedInMenu : loggedOutMenu}
                     </Nav>
                 </Navbar.Collapse>
-                 )}
+                 
             </Container>
             <RGBBar className={stylesNav.RGBBar} />
         </Navbar>
