@@ -11,6 +11,8 @@
 
 .InfoWrapper p {
     max-width: 25%;
+    margin: 0;
+    padding: 0;
 }
 
 .InfoGridRow {
@@ -62,7 +64,7 @@ progress[value] {
     background-color: transparent;
 }
 
-progress::-webkit-progress-bar  {
+progress::-webkit-progress-bar {
     background-color: transparent;
     border-radius: 1.25rem;
 }
