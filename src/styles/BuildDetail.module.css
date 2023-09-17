@@ -30,6 +30,7 @@
 
 .InfoText {
     font-weight: 400;
+    padding: 0.5rem 0;
     color: var(--text);
 }
 
@@ -37,15 +38,33 @@
     cursor: pointer;
 }
 
-.SpecText, .ActionLink:hover {
+.SpecText,
+.ActionLink:hover {
     color: var(--main-accent);
-    
 }
 
 .AccentDivider {
     margin: 1.25rem;
     background-color: var(--main-accent);
 }
+
+progress[value] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+
+    border: none;
+}
+
+progress[value]::-webkit-progress-value {
+    background: linear-gradient(to right, var(--secondary-accent), var(--main-accent));
+}
+
+progress[value]::-moz-progress-bar {
+    background: linear-gradient(to right, var(--secondary-accent), var(--main-accent));
+}
+
 @media screen and (max-width:767px) {
     .InfoWrapper {
         flex-direction: column;
@@ -59,6 +78,7 @@
         justify-content: center;
     }
 }
+
 @media screen and (max-width:999px) {
     .InfoContainer {
         grid-template-columns: 1fr;
