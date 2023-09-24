@@ -44,8 +44,7 @@ const Build = (props) => {
     comments_count,
     saves_count,
     save_id,
-    setBuild,
-    allImages
+    setBuild
   } = props;
 
   const currentUser = useCurrentUser();
