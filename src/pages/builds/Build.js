@@ -156,7 +156,7 @@ const Build = (props) => {
             </tr>
           </table>
 
-          <div className={styles.InfoTable}>
+          {/* <div className={styles.InfoTable}>
             <h3 className={styles.InfoText}>RATINGS</h3>
             <label for="rating-1">RATING:</label>
             <progress id="rating-1" value="50" max="100"></progress>
@@ -168,7 +168,7 @@ const Build = (props) => {
             <progress id="rating-4" value="68" max="100"></progress>
             <label for="rating-5">RATING:</label>
             <progress id="rating-5" value="27" max="100"></progress>
-          </div>
+          </div> */}
         </div>
         <hr />
 
