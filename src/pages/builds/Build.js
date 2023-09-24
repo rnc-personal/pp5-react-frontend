@@ -220,9 +220,22 @@ const Build = (props) => {
               </span>
             </span>
           ) : (
-            <p>
-              saves
-            </p>
+            <span>
+            <Link to={`/signin`}>
+            <Player
+            style={{ height: '60px', width: '60px' }}
+            src="https://lottie.host/8c811ad6-b23d-4f05-95dd-0d1595afb074/yKMMfli1tg.json"
+            className='player'
+            loop
+            autoplay
+            speed={0.5}
+            />
+          </Link>
+            <span className={`${styles.InfoText} ${styles.ActionLink}`}>
+              LOGIN TO SAVE THIS BUILD
+              </span>
+          </span>
+            
           )}
 
           <p className={styles.InfoText}>
