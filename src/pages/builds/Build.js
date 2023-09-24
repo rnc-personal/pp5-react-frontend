@@ -36,6 +36,10 @@ const Build = (props) => {
     build_monitor,
     content,
     main_image,
+    gallery_image_1,
+    gallery_image_2,
+    gallery_image_3,
+    gallery_image_4,
     updated_at,
     comments_count,
     saves_count,
@@ -49,11 +53,8 @@ const Build = (props) => {
 
   const history = useHistory();
 
-  // Define all of these as props above to get them from the DB
-  const imagesGallery = [img1, img2, img3, img4, img5, img6, img7, img8];
-  // Create an array of all of the images in the gallery to then pass to the prop
-  //const updatedAllImages = [...allImages, ...imagesGallery];
-
+  //const galleryDebug = [img1, img2, img3, img4, img5, img6, img7, img8];
+  const imagesGallery = [main_image, gallery_image_1, gallery_image_2, gallery_image_3, gallery_image_4];
 
   const handleEdit = () => {
     history.push(`/builds/${id}/edit`);

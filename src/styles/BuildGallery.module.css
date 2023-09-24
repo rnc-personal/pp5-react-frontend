@@ -1,12 +1,14 @@
 .GalleryWrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     grid-gap: 1.25rem;
+    padding: 0 1.5rem;
 }
 
 .GalleryWrapper img {
     cursor: pointer;
     opacity: 0.8;
+    max-width: 220px;
 }
 
 .GalleryWrapper img:hover {
@@ -16,4 +18,9 @@
 .MainImage {
     width: 100%;
     margin-bottom: 20px;
+}
+
+
+@media screen and (max-width:) {
+    
 }
