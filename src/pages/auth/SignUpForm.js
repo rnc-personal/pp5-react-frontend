@@ -51,15 +51,15 @@ const SignUpForm = () => {
 
                         <Form onSubmit={handleSubmit} >
                             <Form.Group controlId="username">
-                                <Form.Label className="d-none">USERNAME:</Form.Label>
-                                <Form.Control className={styles.Input} type="TEXT" placeholder="USERNAME" name="username" value={username} onChange={handleChange} />
+                                <Form.Label className="d-none">EMAIL:</Form.Label>
+                                <Form.Control className={styles.Input} type="text" placeholder="USERNAME" name="username" value={username} onChange={handleChange} />
                             </Form.Group>
 
                             {errors.username?.map((message, idx) => (<p key={idx}>{message}</p>))}
 
                             <Form.Group controlId="password-1">
                                 <Form.Label className="d-none">PASSWORD</Form.Label>
-                                <Form.Control className={styles.Input} type="password-1" placeholder="SET A PASSWORD" name="password1" value={password1} onChange={handleChange} />
+                                <Form.Control className={styles.Input} type="password" placeholder="SET A PASSWORD" name="password1" value={password1} onChange={handleChange} />
                             </Form.Group>
 
                             {errors.password1?.map((message, idx) => (<p key={idx}>{message}</p>))}
@@ -85,14 +85,7 @@ const SignUpForm = () => {
                 </Col>
             </Row>
             <Row className={styles.Row}>
-                <Col
-                    md={6}
-                    className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
-                >
-                    <div>
-                        IMG/Cube Here
-                    </div>
-                </Col>
+                <Col md={6} className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}></Col>
             </Row>
         </>
     );

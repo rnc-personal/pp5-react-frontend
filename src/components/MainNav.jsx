@@ -63,13 +63,13 @@ const MainNav = () => {
                 className={stylesNav.NavLink}
                 activeClassName={stylesNav.NavLinkActive}
                 to="/signin">
-                Sign in
+            SIGN IN
             </NavLink>
             <NavLink
                 className={stylesNav.NavLink}
                 activeClassName={stylesNav.NavLinkActive}
                 to="/signup">
-                Sign up
+               SIGN UP
             </NavLink>
         </>
     );

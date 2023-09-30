@@ -52,15 +52,15 @@ function SignInForm() {
 
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group controlId="username">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter Username" name="username" className={styles.Input} value={username} onChange={handleChange} />
+                                    <Form.Label>USERNAME</Form.Label>
+                                    <Form.Control type="text" placeholder="USERNAME" name="username" className={styles.Input} value={username} onChange={handleChange} />
                                 </Form.Group>
 
                                 {errors.username?.map((message, idx) => (<p key={idx} >{message}</p>))}
 
                                 <Form.Group controlId="password">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" name="password" className={styles.Input} value={password} onChange={handleChange} />
+                                    <Form.Label>PASSWORD</Form.Label>
+                                    <Form.Control type="password" placeholder="PASSWORD" name="password" className={styles.Input} value={password} onChange={handleChange} />
                                 </Form.Group>
 
                                 {errors.password?.map((message, idx) => (<p key={idx} >{message}</p>))}
@@ -82,10 +82,7 @@ function SignInForm() {
                 <Row className={styles.Row}>
                     <Col
                         md={6}
-                        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
-                    >
-                        <h2>PlaceHolder for IMG/Cube</h2>
-                    </Col>
+                        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}></Col>
                 </Row>
             </>
         );
