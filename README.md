@@ -7,10 +7,12 @@ PC Gaming has become very popular since 2020 and many Youtubers and content crea
 # TODO TEMP:
 
 - New Rating Component
-- Comment Must check if there is a rating associated with it(?)
-  - Are Ratings actually connected with comments or are they separate?
-  - Should Ratings be their Own 'Feature' (Rate and Comment separately rather than leave rating with comments)?
-  - Map Over Ratings and show unique scores? Work Out Average Client Side only?
+  - Map Over Ratings and show unique scores?
+  - Work Out Average Client Side only?
+  - BuilddetailComponent to have tabbed content to flip between ratings and comments.
+  - Show User "ID" rated "Title" "rating_value"
+
+- CMS Content
 ---
 
 ## CONTENTS
