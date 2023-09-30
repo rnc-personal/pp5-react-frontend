@@ -23,17 +23,20 @@ function BuildPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const [ratings, setRatings] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: build }, { data: comments }] = await Promise.all([
+        const [{ data: build }, { data: comments }, {data: ratings}] = await Promise.all([
           axiosReq.get(`/builds/${id}`),
           axiosReq.get(`/comments/?build=${id}`),
+          axiosReq.get(`/ratings/?build=${id}`)
         ]);
 
         setBuild({ results: [build] });
         setComments(comments);
+        setRatings(ratings);
         console.log(build)
 
       } catch (err) {
@@ -57,6 +60,7 @@ function BuildPage() {
               build={id}
               setBuild={setBuild}
               setComments={setComments}
+              setRatings={setRatings}
             />
           ) : comments.results.length ? (
             "Comments"
