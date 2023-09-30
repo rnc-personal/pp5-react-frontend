@@ -53,6 +53,9 @@ function BuildPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Build {...build.results[0]} setBuild={setBuild} buildPage />
+        
+        {/* Tabbed Content */}
+
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentForm
