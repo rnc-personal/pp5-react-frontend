@@ -9,7 +9,7 @@
 .GalleryWrapper img {
     cursor: pointer;
     opacity: 0.8;
-    max-width: 220px;
+    max-width: 160px;
 }
 
 .GalleryWrapper img:hover {
