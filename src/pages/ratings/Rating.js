@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Media } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import styles from "../../styles/Comment.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -8,7 +7,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 
 const Rating = (props) => {
-    const { id, creator, rating_value } = props;
+    const { creator, rating_value } = props;
     return (
         <>
             <hr />
