@@ -50,6 +50,24 @@
     background-color: var(--main-accent);
 }
 
+.TabWrapper {
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .Tab {
+    flex: 1 0 50%;
+    text-align: center;
+  }
+
 progress {
     background-color: transparent;
     border-radius: 1.25rem;

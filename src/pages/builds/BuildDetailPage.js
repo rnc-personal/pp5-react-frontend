@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import CommentForm from "../comments/CommentForm";
 import Comment from "../comments/Comment";
+import Rating from "../ratings/Rating";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
@@ -24,6 +25,7 @@ function BuildPage() {
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
   const [ratings, setRatings] = useState({ results: [] });
+  const [activeTab, setActiveTab] = useState('comments');
 
   useEffect(() => {
     const handleMount = async () => {
@@ -36,9 +38,10 @@ function BuildPage() {
 
         setBuild({ results: [build] });
         setComments(comments);
-        setRatings([ratings]);
+        setRatings(ratings);
         console.log(build)
         console.log(ratings)
+        console.log(ratings.results.length)
 
       } catch (err) {
         console.log(err);
@@ -57,7 +60,17 @@ function BuildPage() {
         {/* Tabbed Content */}
 
         <Container className={appStyles.Content}>
-          {currentUser ? (
+        <h3>{activeTab}</h3>
+        <div className={styles.Tab} onClick={() => setActiveTab('comments')}>
+          Comments
+          </div>
+        
+          <div className={styles.Tab} onClick={() => setActiveTab('ratings')}>
+          Ratings
+        </div>
+
+          
+          {currentUser && activeTab === 'comments' ? (
             <CommentForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -66,34 +79,57 @@ function BuildPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
-            "Comments"
+            <h3>{activeTab}</h3>
           ) : null}
-          {comments.results.length ? (
-            <>
-            <hr className={styles.AccentDivider} />
-              <h3>
-                Comments
-              </h3>
-              <InfiniteScroll children={
-                comments.results.map((comment) => (
-                  <Comment
-                    key={comment.id}
-                    {...comment}
-                    setBuild={setBuild}
-                    setComments={setComments}
-                  />))}
-                dataLength={comments.results.length}
-                loader={<Asset spinner />}
-                hasMore={!!comments.next}
-                next={() => fetchMoreData(comments, setComments)}
-              >
-              </InfiniteScroll>
-            </>
-          ) : currentUser ? (
-            <p>No Comments Yet</p>
-          ) :
-            <p>Login To Leave A Comment</p>
-          }
+
+          {activeTab === 'comments' ? (
+            comments.results.length ? (
+              <>
+                <hr className={styles.AccentDivider} />
+                <InfiniteScroll
+                  children={comments.results.map((comment) => (
+                    <Comment
+                      key={comment.id}
+                      {...comment}
+                      setBuild={setBuild}
+                      setComments={setComments}
+                    />)
+                  )}
+                  dataLength={comments.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!comments.next}
+                  next={() => fetchMoreData(comments, setComments)}
+                />
+              </>
+            ) : currentUser ? (
+              <p>No Comments Yet</p>
+            ) : null
+          ) : activeTab === 'ratings' ? (
+            ratings.results.length ? (
+              <>
+                <hr className={styles.AccentDivider} />
+                <InfiniteScroll
+                  children={ratings.results.map((rating) => (
+                    <Rating
+                      key={rating.id}
+                      {...rating}
+
+                    />)
+                  )}
+                  dataLength={ratings.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!ratings.next}
+                  next={() => fetchMoreData(ratings, setRatings)}
+                />
+              </>
+            ) : currentUser ? (
+              <p>No Ratings Yet</p>
+            ) : null
+          ) : null}
+
+          
+          
+  
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
