@@ -10,23 +10,12 @@ import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "../comments/CommentEditForm";
 
 const Rating = (props) => {
-    const { id,  user, rating_value } = props;
+    const { id, creator, rating_value } = props;
     return (
         <>
             <hr />
             <Media>
-                <Link to={`/profiles/${id}`}>
-                    <span className={styles.Owner}>{user}</span>
-                </Link>
-                <Media.Body className="align-self-center ml-2">
-                    <hr/>
-                    {rating_value ? (
-                        <p>{rating_value}</p>
-
-                    ) : (
-                        <p>{rating_value}</p>
-                    )}
-                </Media.Body>
+                <span className={styles.Owner}>{creator} Rated this build {rating_value}</span>
             </Media>
         </>
     );

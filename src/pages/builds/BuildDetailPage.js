@@ -113,7 +113,6 @@ function BuildPage() {
                     <Rating
                       key={rating.id}
                       {...rating}
-
                     />)
                   )}
                   dataLength={ratings.results.length}
