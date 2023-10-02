@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
 import styles from "../../styles/Comment.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
-
+import RatingScore from "./RatingScore";
 
 const Rating = (props) => {
     const { creator, rating_value } = props;
     return (
         <>
-            <hr />
-            <Media>
-                <span className={styles.Owner}>{creator} Rated this build {rating_value}</span>
-            </Media>
+        <hr />
+            <div>
+                <span className={styles.Owner}>{creator} Rated this build <RatingScore rating_value={rating_value}/></span>
+            </div>
         </>
     );
 };

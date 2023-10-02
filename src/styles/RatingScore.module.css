@@ -1,0 +1,15 @@
+.scorePositive {
+    border: 4px solid #1bce74
+}
+
+.scoreAverage {
+    border: 4px solid #cea41b
+}
+
+.scoreNegative {
+    border: 4px solid #ce1b48
+}
+
+.Score {
+    font-size: 2.25rem;
+}

@@ -52,21 +52,34 @@
 
 .TabWrapper {
 
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .Columns {
+}
+
+.Columns {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
-  
-  .Tab {
-    flex: 1 0 50%;
+}
+
+.TabWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0 1.25rem;
+}
+
+.Tab {
+    padding: 1.5rem 3.75rem;
     text-align: center;
-  }
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.Tab:hover {
+    background-color: var(--main-accent);
+}
 
 progress {
     background-color: transparent;

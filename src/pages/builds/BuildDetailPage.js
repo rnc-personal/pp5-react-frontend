@@ -16,6 +16,8 @@ import styles from '../../styles/BuildDetail.module.css';
 import Build from "./Build";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PopularProfiles from "../profiles/PopularProfiles";
+import AverageRating from "../ratings/AverageRating";
+
 
 function BuildPage() {
   const { id } = useParams();
@@ -56,11 +58,12 @@ function BuildPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Build {...build.results[0]} setBuild={setBuild} buildPage />
-        
-        {/* Tabbed Content */}
-
+        <AverageRating ratings={ratings}/>
         <Container className={appStyles.Content}>
         <h3>{activeTab}</h3>
+        <hr/>
+
+        <div className={styles.TabWrapper}>
         <div className={styles.Tab} onClick={() => setActiveTab('comments')}>
           Comments
           </div>
@@ -68,7 +71,7 @@ function BuildPage() {
           <div className={styles.Tab} onClick={() => setActiveTab('ratings')}>
           Ratings
         </div>
-
+        </div>
           
           {currentUser && activeTab === 'comments' ? (
             <CommentForm
@@ -125,10 +128,6 @@ function BuildPage() {
               <p>No Ratings Yet</p>
             ) : null
           ) : null}
-
-          
-          
-  
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
