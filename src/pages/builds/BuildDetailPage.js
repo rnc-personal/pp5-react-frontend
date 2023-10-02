@@ -17,6 +17,7 @@ import Build from "./Build";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PopularProfiles from "../profiles/PopularProfiles";
 import AverageRating from "../ratings/AverageRating";
+import CreateRatingForm from "../ratings/CreateRatingForm";
 
 
 function BuildPage() {
@@ -58,21 +59,21 @@ function BuildPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Build {...build.results[0]} setBuild={setBuild} buildPage />
-        <AverageRating ratings={ratings}/>
+        <AverageRating ratings={ratings} />
         <Container className={appStyles.Content}>
-        <h3>{activeTab}</h3>
-        <hr/>
+          <h3>{activeTab}</h3>
+          <hr />
 
-        <div className={styles.TabWrapper}>
-        <div className={styles.Tab} onClick={() => setActiveTab('comments')}>
-          Comments
+          <div className={styles.TabWrapper}>
+            <div className={styles.Tab} onClick={() => setActiveTab('comments')}>
+              Comments
+            </div>
+
+            <div className={styles.Tab} onClick={() => setActiveTab('ratings')}>
+              Ratings
+            </div>
           </div>
-        
-          <div className={styles.Tab} onClick={() => setActiveTab('ratings')}>
-          Ratings
-        </div>
-        </div>
-          
+
           {currentUser && activeTab === 'comments' ? (
             <CommentForm
               profile_id={currentUser.profile_id}
@@ -80,6 +81,17 @@ function BuildPage() {
               build={id}
               setBuild={setBuild}
               setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            <h3>{activeTab}</h3>
+          ) : null}
+
+          {currentUser && activeTab === 'ratings' ? (
+            <CreateRatingForm
+              build={id}
+              user={currentUser}
+              setBuild={setBuild}
+              setRatings={setRatings}
             />
           ) : comments.results.length ? (
             <h3>{activeTab}</h3>
@@ -116,6 +128,8 @@ function BuildPage() {
                     <Rating
                       key={rating.id}
                       {...rating}
+                      setBuild={setBuild}
+                      setRatings={setRatings}
                     />)
                   )}
                   dataLength={ratings.results.length}
