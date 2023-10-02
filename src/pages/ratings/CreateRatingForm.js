@@ -12,11 +12,18 @@ function CreateRatingForm(props) {
   const [rating_value, setRating] = useState(3);
 
   const handleChange = (event) => {
-    setRating(event.target.value);
-     console.log("rating" + " " + rating_value);
-     console.log("build_id" + " " + build); 
-     console.log("user" + " " + user);
-     console.log("profile_id" + " " + user.profile_id);
+
+    const inputValue = parseInt(event.target.value, 10);
+
+    if (!isNaN(inputValue)) {
+        // Check if the parsing was successful
+        setRating(inputValue); // Update the state with the parsed integer value
+      }
+
+     console.log("rating" + " " + rating_value + " " + typeof(rating_value));
+     console.log("build_id" + " " + build + " " + typeof(build)); 
+     console.log("user" + " " + user + " " + typeof(user));
+     console.log("profile_id" + " " + user.profile_id + " " + typeof(user.profile_id));
   };
 
   const handleSubmit = async (event) => {
@@ -38,7 +45,7 @@ function CreateRatingForm(props) {
           },
         ],
       }));
-      setRating(null);
+      setRatings(1);
     } catch (err) {
       console.log(err);
     }

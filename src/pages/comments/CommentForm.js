@@ -13,6 +13,7 @@ function CommentCreateForm(props) {
 
   const handleChange = (event) => {
     setContent(event.target.value);
+    console.log(build + " " + typeof(build));
   };
 
   const handleSubmit = async (event) => {
