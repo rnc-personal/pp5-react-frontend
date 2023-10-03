@@ -8,7 +8,7 @@ import styles from "../../styles/CommentForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
-  const { build, setBuild, setComments, profileImage, profile_id } = props;
+  const { build, setBuild, setComments, profile_id } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {

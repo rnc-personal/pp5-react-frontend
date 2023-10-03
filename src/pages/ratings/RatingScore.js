@@ -1,4 +1,3 @@
-import { Media } from "react-bootstrap";
 import styles from '../../styles/RatingScore.module.css';
 
 const RatingScore = ({rating_value}) => {
