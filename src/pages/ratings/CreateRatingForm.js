@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
@@ -10,14 +10,14 @@ import { axiosRes } from "../../api/axiosDefaults";
 function CreateRatingForm(props) {
   const { build, setRatings, setBuild, user } = props;
   const [rating_value, setRating] = useState(3);
+  const [hasRated, setHasRated] = useState(false);
 
   const handleChange = (event) => {
 
     const inputValue = parseInt(event.target.value, 10);
 
     if (!isNaN(inputValue)) {
-        // Check if the parsing was successful
-        setRating(inputValue); // Update the state with the parsed integer value
+        setRating(inputValue);
       }
 
      console.log("rating" + " " + rating_value + " " + typeof(rating_value));
@@ -45,35 +45,55 @@ function CreateRatingForm(props) {
           },
         ],
       }));
-      setRatings(1);
+      setHasRated(true);
     } catch (err) {
       console.log(err);
     }
   };
 
-  return (
-    <Form className="mt-2" onSubmit={handleSubmit}>
-      <Form.Group>
-        <InputGroup>
-          <Form.Control
-            className={styles.Form}
-            type="number"
-            max={5}
-            min={1}
-            value={rating_value}
-            onChange={handleChange}
-            rows={1}
-          />
-        </InputGroup>
-      </Form.Group>
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
+  useEffect(() => {
+    // Check if the user has already rated the build when the component mounts
+    const checkIfUserRated = async () => {
+      try {
+        const { data } = await axiosRes.get(`/ratings/?build=${build}&user=${user.profile_id}`);
+        if (data.results.length > 0) {
+          // If there are ratings for the current user and build, set hasRated to true
+          setHasRated(true);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-        type="submit"
-      >
-        SUBMIT
-      </button>
-    </Form>
+    checkIfUserRated();
+  }, [build, user.profile_id]);
+
+  return (
+    <>
+      <Form className="mt-2" onSubmit={handleSubmit}>
+        <Form.Group>
+          <InputGroup>
+            <Form.Control
+              className={styles.Form}
+              type="number"
+              max={5}
+              min={1}
+              value={rating_value}
+              onChange={handleChange}
+              rows={1}
+            />
+          </InputGroup>
+        </Form.Group>
+        <button
+          className={`${styles.Button} btn d-block ml-auto`}
+          disabled={hasRated} 
+          type="submit"
+        >
+          {hasRated? "ALREADY RATED" : "SUBMIT"}
+        </button>
+      </Form>
+      </>
+
   );
 }
 

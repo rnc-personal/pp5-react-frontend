@@ -75,10 +75,12 @@
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
+    background-color: var(--main-accent);
 }
 
 .Tab:hover {
-    background-color: var(--main-accent);
+    background-color: var(--secondary-accent);
+    color: var(--bg);
 }
 
 progress {

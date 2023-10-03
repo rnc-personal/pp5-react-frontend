@@ -19,9 +19,9 @@ const RatingScore = ({rating_value}) => {
             <hr />
                 <span className={styles.ScoreWrapper}>
                     <div className={getColorBasedOnRating(rating_value)}>
-                        <span className={styles.Score}>
+                        <div className={styles.Score}>
                             {rating_value}
-                        </span>
+                        </div>
                     </div>
                 </span>
         </>
