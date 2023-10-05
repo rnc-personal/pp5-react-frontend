@@ -82,8 +82,8 @@ function BuildPage() {
               setBuild={setBuild}
               setComments={setComments}
             />
-          ) : comments.results.length ? (
-            <h3>{activeTab}</h3>
+          ) : comments.results.length && activeTab === 'comments' ? (
+            <h3>{comments.results.length} Comments</h3>
           ) : null}
 
           {currentUser && activeTab === 'ratings' ? (
@@ -93,8 +93,8 @@ function BuildPage() {
               setBuild={setBuild}
               setRatings={setRatings}
             />
-          ) : comments.results.length ? (
-            <h3>{activeTab}</h3>
+          ) : ratings.results.length && activeTab === 'ratings' ? (
+            <h3>{ratings.results.length} Ratings</h3>
           ) : null}
 
           {activeTab === 'comments' ? (
