@@ -19,10 +19,10 @@ function CreateRatingForm(props) {
         setRating(inputValue);
       }
 
-     console.log("rating" + " " + rating_value + " " + typeof(rating_value));
-     console.log("build_id" + " " + build + " " + typeof(build)); 
-     console.log("user" + " " + user + " " + typeof(user));
-     console.log("profile_id" + " " + user.profile_id + " " + typeof(user.profile_id));
+     //console.log("rating" + " " + rating_value + " " + typeof(rating_value));
+     //console.log("build_id" + " " + build + " " + typeof(build)); 
+     //console.log("user" + " " + user + " " + typeof(user));
+     //console.log("profile_id" + " " + user.profile_id + " " + typeof(user.profile_id));
   };
 
   const handleSubmit = async (event) => {
