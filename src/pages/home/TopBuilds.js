@@ -8,26 +8,36 @@ import { Link } from 'react-router-dom';
 
 function TopBuilds() {
     const [build, setBuild] = useState({ results: [] });
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        const handleMount = async () => {
-            try {
-                const [{ data: build }] = await Promise.all([
-                    axiosReq.get(`/builds/`)
-                ]);
-                // Find all Builds with More than 10 Comments
-                const filteredBuilds = build.results.filter((build) => build.comments_count >= 1);
-
-                setBuild({ results: filteredBuilds });
-                console.log(filteredBuilds);
-
-            } catch (err) {
-                console.log(err);
-            }
+        const fetchBuilds = async () => {
+          try {
+            const response = await axiosReq.get(`/builds/?page=${currentPage}`);
+            const { data } = response;
+    
+            // Combine existing builds with new page of builds
+            const combinedBuilds = [
+              ...build.results,
+              ...data.results.map((build) => ({ ...build, comments_count: build.comments_count || 0 })), // Handle missing comments_count
+            ];
+    
+            // Sort builds by comments_count in descending order
+            const sortedBuilds = combinedBuilds.sort((a, b) => b.comments_count - a.comments_count);
+    
+            // Get the first 6 builds with the most comments
+            const topBuilds = sortedBuilds.slice(0, 6);
+    
+            setBuild({ results: topBuilds });
+            setCurrentPage(currentPage + 1);
+          } catch (err) {
+            console.log(err);
+          }
         };
-
-        handleMount();
-    }, []);
+    
+        fetchBuilds();
+      }, [currentPage]);
+      
 
 
     return (
@@ -38,7 +48,7 @@ function TopBuilds() {
                         <img src={build.main_image} alt={build.build_name} />
                         <h3>{build.build_name}</h3>
                         <p>{build.comments_count} Comments</p>
-                        <Link className={btnStyles.Button} to={`/builds/${build.id}`}>VIEW</Link>
+                        <Link className={btnStyles.Button} to={`/builds/${build.id}`} style={{width: '100%'}}>VIEW</Link>
                     </div>
             ))}
             </div>

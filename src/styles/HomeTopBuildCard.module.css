@@ -5,6 +5,7 @@
     max-width: 1024px;
     justify-content: center;
     margin: 2rem auto;
+    gap: 1rem;
 }
 
 .HomeBuildCard {
@@ -12,5 +13,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+
+@media screen and (max-width: 767px) {
+    .HomeBuildCard {
+        width: 45%;
+        justify-content: space-between;
+    }
+    .HomeBuildCard > a {
+        width: 100%;
+    }
 }
 
