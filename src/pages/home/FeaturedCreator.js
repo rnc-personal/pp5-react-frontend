@@ -45,9 +45,8 @@ function FeaturedCreator() {
               {user.content}
             </p>
 
-
-          <Link to={`/profiles/${user.id}`}>
-            VISIT PROFILE
+            <Link to={`/profiles/${user.id}`}>
+              VISIT PROFILE
             </Link>
           </div>
         </div>
@@ -56,9 +55,6 @@ function FeaturedCreator() {
       )}
     </>
   );
-  
-  
-  
-  }
-  
-  export default FeaturedCreator;
+}
+
+export default FeaturedCreator;
