@@ -6,3 +6,26 @@
 .HeroBlurb {
     margin: 1.2rem 1.6rem;
 }
+
+.FullDivider {
+    width: 100%;
+    background-color: #D9176B;
+    color: #D9176B;
+}
+
+.ButtonWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+@media screen and (max-width: 767px) {
+
+    .ButtonWrapper {
+        display: flex;
+        justify-content: center;
+        gap: 1.25rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}

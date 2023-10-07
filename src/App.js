@@ -15,6 +15,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import Home from './pages/home/Home';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
               <BuildsList
                 message="Nothing Found!"
               />} />
+          <Route exact path='/home' render={() => <Home />} />
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path="/builds/create" render={() => <CreateBuildForm />} />

@@ -1,15 +1,32 @@
 import React from 'react'
-import styles from '../styles/Hero.module.css';
+import { Button } from "react-bootstrap";
 
-const Hero = () => {
+import styles from '../styles/Hero.module.css';
+import btnStyles from "../styles/Button.module.css"
+
+
+
+const Hero = ({ headline, subline }) => {
     return (
-        <div className={styles.Hero}>
-            <h1 className={styles.MegaHeader}>SHARE YOUR BATTLEBOX!</h1>
-            <h2 className={styles.HeroBlurb}>SIGN UP TO SHARE YOUR KILLER BUILD AND SEE WHAT OTHER USERS HAVE CREATED</h2>
-        </div>
+        <>
+            <div className={styles.Hero}>
+                <h1 className={styles.MegaHeader}>{headline}</h1>
+                <h2 className={styles.HeroBlurb}>{subline}</h2>
+            </div>
+            <div className={styles.ButtonWrapper}>
+                <Button className={btnStyles.Button} onClick={() => { }}>
+                    SIGNUP
+                </Button>
+
+                <Button className={btnStyles.Button} onClick={() => { }}>
+                    LOGIN
+                </Button>
+
+            </div>
+            <hr className={styles.FullDivider} />
+        </>
     )
 }
 
-{/* <Hero className={styles.App}/> */}
 
 export default Hero

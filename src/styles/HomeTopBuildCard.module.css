@@ -1,0 +1,16 @@
+.HomeBuildsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 1024px;
+    justify-content: center;
+    margin: 2rem auto;
+}
+
+.HomeBuildCard {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
