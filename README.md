@@ -6,10 +6,12 @@ PC Gaming has become very popular since 2020 and many Youtubers and content crea
 
 # TODO TEMP:
 
-- Get Featured Builds and USers from Updated API
+- Get Featured Builds and Users from Updated API, Pull content and profile Image for featured users
 - Get CMS Content
 - Component Documentation
 - Figma Wireframes
+- Change Default Gallery Images so they are different to illustrate Gallery Component works correctly
+
 
 ---
 
