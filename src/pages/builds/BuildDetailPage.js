@@ -42,9 +42,6 @@ function BuildPage() {
         setBuild({ results: [build] });
         setComments(comments);
         setRatings(ratings);
-        // console.log(build)
-        // console.log(ratings)
-        // console.log(ratings.results.length)
 
       } catch (err) {
         console.log(err);

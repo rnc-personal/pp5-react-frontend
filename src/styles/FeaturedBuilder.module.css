@@ -7,10 +7,11 @@
 
 .FeaturedBuilderText {
     padding: 1rem;
+    flex: 1 0 75%;
 }
 
 .FeaturedBuilderImage {
-    max-width: 200px;
+    max-width: 220px;
     border-radius: 50%;
 }
 
