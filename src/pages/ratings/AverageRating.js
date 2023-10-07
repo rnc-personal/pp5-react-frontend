@@ -12,7 +12,7 @@ const AverageRating = ({ ratings }) => {
   const averageRating =
     ratings.results.length > 0
       ? (totalRating / ratings.results.length).toFixed(1)
-      : "N/A"; 
+      : "NOT RATED YET"; 
 
   return (
     <div>
