@@ -6,13 +6,11 @@ PC Gaming has become very popular since 2020 and many Youtubers and content crea
 
 # TODO TEMP:
 
-- New Rating Component
-  - Map Over Ratings and show unique scores?
-  - Work Out Average Client Side only?
-  - BuilddetailComponent to have tabbed content to flip between ratings and comments.
-  - Show User "ID" rated "Title" "rating_value"
+- Get Featured Builds and USers from Updated API
+- Get CMS Content
+- Component Documentation
+- Figma Wireframes
 
-- CMS Content
 ---
 
 ## CONTENTS
