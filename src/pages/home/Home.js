@@ -9,7 +9,7 @@ function Home() {
         headline="SHARE YOUR BATTLEBOX!"
         subline="SIGN UP TO SHARE YOUR KILLER BUILD AND SEE WHAT OTHER USERS HAVE CREATED"
         />
-        <TopBuilds />
+        <TopBuilds filter="ordering=-comments_count"/>
     </div>
   )
 }
