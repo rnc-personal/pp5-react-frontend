@@ -12,7 +12,7 @@ function FeaturedCreator() {
         const response = await axiosReq.get(`/profiles/`);
         const { data } = response;
 
-        // Check if 'data' has 'results' property
+        // Check if 'data' has 'results' property, for some reason this was more fussy and would not accept Promises.
         if (data && data.results) {
           const featuredCreators = data.results.filter(profile => profile.is_featured === true);
           setFeaturedCreator({ results: featuredCreators });
@@ -33,7 +33,7 @@ function FeaturedCreator() {
     <>
       {featuredCreator.results.length > 0 ? (
         <div className={styles.FeaturedBuilderWrapper}>
-          <img className={styles.FeaturedBuilderImage} src={user.profile_image} alt="Some Text" />
+          <img className={styles.FeaturedBuilderImage} src={user.profile_image} alt={user.name} />
           <div className={styles.FeaturedBuilderText}>
             <h3>{user.name}</h3>
 
@@ -41,7 +41,7 @@ function FeaturedCreator() {
               {user.description}
             </small>
 
-            <p >
+            <p>
               {user.content}
             </p>
 
