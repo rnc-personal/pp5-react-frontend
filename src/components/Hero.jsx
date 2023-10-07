@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 import styles from '../styles/Hero.module.css';
 import btnStyles from "../styles/Button.module.css"
@@ -14,13 +15,13 @@ const Hero = ({ headline, subline }) => {
                 <h2 className={styles.HeroBlurb}>{subline}</h2>
             </div>
             <div className={styles.ButtonWrapper}>
-                <Button className={btnStyles.Button} onClick={() => { }}>
+                <Link to={`/signup/`} className={btnStyles.Button}>
                     SIGNUP
-                </Button>
+                </Link >
 
-                <Button className={btnStyles.Button} onClick={() => { }}>
+                <Link to={`/signin/`} className={btnStyles.Button}>
                     LOGIN
-                </Button>
+                </Link >
 
             </div>
             <hr className={styles.FullDivider} />
