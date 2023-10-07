@@ -12,7 +12,7 @@ function TopBuilds({ filter }) {
     useEffect(() => {
       const fetchTopBuilds = async () => {
         try {
-          const response = await axiosReq.get(`/builds/?${filter}&page=${currentPage}`);
+          const response = await axiosReq.get(`/builds/?${filter}&page=1`);
           const { data } = response;
   
           // Clear existing top builds when fetching a new page
@@ -25,7 +25,7 @@ function TopBuilds({ filter }) {
           const updatedTopBuilds = combinedTopBuilds.slice(0, 6);
   
           setTopBuilds({ results: updatedTopBuilds });
-          setCurrentPage(currentPage + 1);
+          setCurrentPage(1);
         } catch (err) {
           console.log(err);
         }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
-import styles from '../../styles/FeaturedBuilder.module.css'
+import styles from '../../styles/FeaturedCreator.module.css'
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function FeaturedCreator() {
