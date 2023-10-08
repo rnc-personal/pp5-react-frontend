@@ -6,11 +6,9 @@ PC Gaming has become very popular since 2020 and many Youtubers and content crea
 
 # TODO TEMP:
 
-- Get Featured Builds and Users from Updated API, Pull content and profile Image for featured users
-- Get CMS Content
 - Component Documentation
 - Figma Wireframes
-- Change Default Gallery Images so they are different to illustrate Gallery Component works correctly
+
 
 
 ---
@@ -127,6 +125,88 @@ Both are hosted on Heroku and the database is hosted on ElephantSQL remotely and
 - React Bootstrap
 - Google Fonts
 - Cloudinary
+
+### React Components
+
+The site makes use of Many Bootstrap React Components and some from React Router.
+Examples of these are <Row>, <Column>, <Media> (Bootstrap) and <Link> (React Router).
+
+Additionally the site has some of its own components which are detailed below:
+
+#### BuildGallery:
+
+##### Overview
+The BuildGallery component is a React component that displays a gallery of images. It includes a main image and a gallery of smaller images. Users can click on the smaller images to change the main image. The main image also serves as a clickable link to another page (typically for a detailed view of the gallery).
+
+##### Props
+id (number): This is used for the users profile and is optional but used here to link back to the users profile above the gallery.
+allImages (array of strings): An array of image URLs to be displayed in the gallery.
+
+The data for both these props is being passed down from the Build component where the dta fetching occurs.
+
+##### Component Structure
+Main Image Display: The main image is displayed at the top of the component and is wrapped in a link element (Link from react-router-dom). Clicking the main image redirects the user to another page.
+
+##### Image Gallery:
+Below the main image, there is an image gallery consisting of smaller thumbnail images. Users can click on these thumbnails to change the main image.
+
+##### State Management
+The component uses the useState hook to manage the currentMainImage state, which tracks the index of the currently displayed main image.
+A nextImage function is used to update the currentMainImage state when a user clicks on a thumbnail in the gallery. It takes an index parameter, representing the index of the clicked image.
+
+---
+#### FeaturedCreator
+
+##### Overview
+The FeaturedCreator component is a React component that displays information about a featured creator. It retrieves data from an API, filters the featured creators, and renders the information, including the creator's name, image, description, content, and a link to their profile. Creators can be marked as featured I nthe django admin under the profiles section.
+
+##### Component Functionality
+State Initialization: The component initializes a state variable called featuredCreator using the useState hook. This state variable is an object with a results property, which is initially an empty array.
+
+##### Data Fetching:
+Inside the useEffect hook with an empty dependency array ([]), the component makes an asynchronous API request using the axiosReq function to fetch data from the /profiles/ endpoint. It checks if the response data contains a results property and filters the profiles to find those marked as featured. The filtered results are then set in the featuredCreator state.
+
+##### Rendering:
+The component conditionally renders content based on the length of the featuredCreator.results array. If there are featured creators available, it displays their information, including name, image, description, content, and a link to their profile. If no featured creators are found, it displays a message indicating that no featured creators were found.
+
+##### Component Structure
+Featured Creator Information: If featured creators are found, the component renders the following information for the first featured creator:
+
+Image: Displayed using an img element with the src attribute set to the creator's profile image URL.
+Name: Displayed as a heading (h3).
+Subtitle: Displayed as a small text (small) element, typically showing the creator's description.
+Content: Displayed as a paragraph (p) element, showing additional information about the creator.
+Link to Profile: A clickable link (Link from react-router-dom) that redirects the user to the creator's profile page.
+No Featured Creators Message: If no featured creators are found, the component displays a message indicating that no featured creators were found.
+
+---
+#### TopBuilds
+
+##### Overview
+The TopBuilds component is a React component responsible for displaying a list of top builds based on a specified filter. It fetches data from an API, combines the existing top builds with new top builds, and displays them as cards with build information, including an image, build name, comment count, and a link to view more details.
+
+##### Props:
+ The component accepts a filter prop passed down from the Home component. This makes use of the Django DRF API query paramters and filtering to directly request the top builds based on the number of comments each build has for gathering the results
+
+##### Component Functionality
+State Initialization: The component initializes two state variables using the useState hook:
+
+topBuilds: An object with a results property, initially an empty array, to store the top builds.
+currentPage: A state variable initially set to 1, which keeps track of the current page of top builds.
+
+##### Data Fetching:
+Inside the useEffect hook with a dependency array containing [currentPage], the component makes an asynchronous API request using the axiosReq function to fetch data from the /builds/ endpoint with the specified filter and page number. It then processes the response data to handle missing comments_count and combines the new top builds with the existing ones. Finally, it updates the topBuilds state with the first 6 top builds based on the most comments and resets the currentPage to 1.
+
+##### Rendering:
+The component maps over the topBuilds.results array to render build cards. Each build card includes the following information:
+
+Image: Displayed using an img element with the src attribute set to the build's main image URL.
+Build Name: Displayed as a heading (h3).
+Comment Count: Displayed as a paragraph (p) showing the number of comments on the build.
+View Link: A clickable link (Link from react-router-dom) styled as a button that redirects the user to the detailed view of the build.
+
+##### Component Structure
+Build Cards: The component renders multiple build cards, each containing information about a top build.
 
 ## Deployment & Local Development
 
