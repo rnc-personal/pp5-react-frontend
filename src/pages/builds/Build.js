@@ -95,7 +95,6 @@ const Build = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <img src={currentUser?.profile_image} alt='User Profile'/>
             {creator}
           </Link>
           <div className="d-flex align-items-center">
