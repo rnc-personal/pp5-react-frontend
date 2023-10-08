@@ -70,10 +70,10 @@ function BuildCreateForm() {
     formData.append("build_case", build_case);
     formData.append("build_monitor", build_monitor);
     formData.append("main_image", imageInput.current.files[0]);
-    formData.append("gallery_image_1", imageInput.current.files[1]);
-    formData.append("gallery_image_2", imageInput.current.files[2]);
-    formData.append("gallery_image_3", imageInput.current.files[3]);
-    formData.append("gallery_image_4", imageInput.current.files[4]);
+    formData.append("gallery_image_1", imageInput1.current.files[0]);
+    formData.append("gallery_image_2", imageInput2.current.files[0]);
+    formData.append("gallery_image_3", imageInput3.current.files[0]);
+    formData.append("gallery_image_4", imageInput4.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/builds/", formData);
@@ -88,6 +88,7 @@ function BuildCreateForm() {
   };
 
   const imageInput = useRef(null);
+  const imageInput1 = useRef(null);
   const imageInput2 = useRef(null);
   const imageInput3 = useRef(null);
   const imageInput4 = useRef(null);
@@ -252,13 +253,13 @@ function BuildCreateForm() {
                 id="image-upload-1"
 
                 accept="image/*"
-                ref={imageInput2}
+                ref={imageInput1}
               />
               <Form.File
                 id="image-upload-2"
 
                 accept="image/*"
-                ref={imageInput3}
+                ref={imageInput2}
               />
               <Form.File
                 id="image-upload-3"
