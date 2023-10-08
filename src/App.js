@@ -27,14 +27,7 @@ function App() {
       <MainNav />
       <Container className={styles.Main} fluid>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() =>
-              <BuildsList
-                message="Nothing Found!"
-              />} />
-          <Route exact path='/home' render={() => <Home />} />
+          <Route exact path='/' render={() => <Home />} />
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path="/builds/create" render={() => <CreateBuildForm />} />

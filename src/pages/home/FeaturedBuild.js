@@ -10,20 +10,18 @@ function FeaturedBuild() {
         const handleMount = async () => {
             try {
                 const response = await axiosReq.get(`/builds/`);
-
-                console.log(response);
+                //console.log(response);
 
                 const { data } = response;
-
-                console.log(data);
+                //console.log(data);
 
                 // Check if 'data' has 'results' property, for some reason this was more fussy and would not accept Promises.
                 if (data && data.results) {
                     const featuredBuilds = data.results.filter(build => build.is_featured === true);
                     setFeaturedBuild({ results: featuredBuilds });
 
-                    console.log('Builds in useState: ', featuredBuilds);
-                    console.log('Builds in useState using Index: ', featuredBuilds[0]);
+                    //console.log('Builds in useState: ', featuredBuilds);
+                    //console.log('Builds in useState using Index: ', featuredBuilds[0]);
 
                 } else {
                     console.log('No data or results found in response.');

@@ -24,7 +24,7 @@ function BuildGallery({ id, allImages }) {
                         src={image}
                         className={styles.GalleryImage}
                         key={index}
-                        alt={`Image ${index}`}
+                        alt={`Gallery__${index}`}
                         onClick={() => nextImage(index)}
                     />
                 ))}

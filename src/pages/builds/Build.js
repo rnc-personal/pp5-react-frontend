@@ -10,23 +10,11 @@ import styles from '../../styles/BuildDetail.module.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import BuildGallery from '../../components/BuildGallery';
 
-// Debug Images
-// import img1 from '../../assets/1.png'
-// import img2 from '../../assets/2.png'
-// import img3 from '../../assets/3.png'
-// import img4 from '../../assets/4.png'
-// import img5 from '../../assets/5.png'
-// import img6 from '../../assets/6.png'
-// import img7 from '../../assets/7.png'
-// import img8 from '../../assets/8.png'
-
-
 const Build = (props) => {
   const {
     id,
     creator,
     profile_id,
-    profile_image,
     build_name,
     build_cpu,
     build_mobo,
@@ -107,7 +95,7 @@ const Build = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <img src={currentUser?.profile_image} />
+            <img src={currentUser?.profile_image} alt='User Profile'/>
             {creator}
           </Link>
           <div className="d-flex align-items-center">
