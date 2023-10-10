@@ -15,13 +15,6 @@
     padding: 0;
 }
 
-.InfoGridRow {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    align-items: stretch;
-    align-content: space-around;
-}
-
 .InfoTable {
     display: flex;
     flex-direction: column;
@@ -119,12 +112,6 @@ progress[value]::-moz-progress-bar {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
-    }
-
-    .InfoGridRow {
-        grid-template-columns: 1fr;
-        align-items: start;
-        justify-content: center;
     }
 }
 

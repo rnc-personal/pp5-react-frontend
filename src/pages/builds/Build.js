@@ -111,8 +111,9 @@ const Build = (props) => {
         {content && <p>{content}</p>}
         <span className="text-muted">{updated_at}</span>
         <div className={styles.InfoContainer}>
-          <table className={styles.InfoTable}>
             <h3 className={styles.InfoText}>SPECS</h3>
+          <table className={styles.InfoTable}>
+            <tbody>
             <tr className={styles.InfoGridRow}>
               <td className={styles.SpecText}>CPU:</td>
               <td>{build_cpu}</td>
@@ -141,21 +142,8 @@ const Build = (props) => {
               <td className={styles.SpecText}>MONITOR:</td>
               <td>{build_monitor}</td>
             </tr>
+            </tbody>
           </table>
-
-          {/* <div className={styles.InfoTable}>
-            <h3 className={styles.InfoText}>RATINGS</h3>
-            <label for="rating-1">RATING:</label>
-            <progress id="rating-1" value="50" max="100"></progress>
-            <label for="rating-2">RATING:</label>
-            <progress id="rating-2" value="30" max="100"></progress>
-            <label for="rating-3">RATING:</label>
-            <progress id="rating-3" value="95" max="100"></progress>
-            <label for="rating-4">RATING:</label>
-            <progress id="rating-4" value="68" max="100"></progress>
-            <label for="rating-5">RATING:</label>
-            <progress id="rating-5" value="27" max="100"></progress>
-          </div> */}
         </div>
         <hr />
 

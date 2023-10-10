@@ -21,6 +21,10 @@ import inputStyles from "../../styles/SignUp.module.css";
 function PostCreateForm() {
 
     const imageInput = useRef(null);
+    const imageInput1 = useRef(null);
+    const imageInput2 = useRef(null);
+    const imageInput3 = useRef(null);
+    const imageInput4 = useRef(null);
     const history = useHistory();
     const { id } = useParams();
 
@@ -30,6 +34,10 @@ function PostCreateForm() {
         build_name: "",
         content: "",
         main_image: "",
+        gallery_image_1: "",
+        gallery_image_2: "",
+        gallery_image_3: "",
+        gallery_image_4: "",
         build_cpu: "",
         build_mobo: "",
         build_ram: "",
@@ -43,6 +51,10 @@ function PostCreateForm() {
         build_name,
         content,
         main_image,
+        gallery_image_1,
+        gallery_image_2,
+        gallery_image_3,
+        gallery_image_4,
         build_cpu,
         build_mobo,
         build_ram,
@@ -60,6 +72,10 @@ function PostCreateForm() {
                     build_name,
                     content,
                     main_image,
+                    gallery_image_1,
+                    gallery_image_2,
+                    gallery_image_3,
+                    gallery_image_4,
                     build_cpu,
                     build_mobo,
                     build_ram,
@@ -74,6 +90,10 @@ function PostCreateForm() {
                     build_name,
                     content,
                     main_image,
+                    gallery_image_1,
+                    gallery_image_2,
+                    gallery_image_3,
+                    gallery_image_4,
                     build_cpu,
                     build_mobo,
                     build_ram,
@@ -122,7 +142,23 @@ function PostCreateForm() {
         formData.append("build_monitor", build_monitor);
 
         if (imageInput?.current?.files[0]) {
-        formData.append("main_image", imageInput.current.files[0]);
+            formData.append("main_image", imageInput.current.files[0]);
+        }
+
+        if (imageInput1?.current?.files[0]) {
+            formData.append("gallery_image_1", imageInput1.current.files[0]);
+        }
+
+        if (imageInput2?.current?.files[0]) {
+            formData.append("gallery_image_2", imageInput2.current.files[0]);
+        }
+
+        if (imageInput3?.current?.files[0]) {
+            formData.append("gallery_image_3", imageInput3.current.files[0]);
+        }
+
+        if (imageInput4?.current?.files[0]) {
+            formData.append("gallery_image_4", imageInput4.current.files[0]);
         }
 
         try {
@@ -262,7 +298,7 @@ function PostCreateForm() {
                             {main_image ? (
                                 <>
                                     <figure>
-                                    <Image className={imgStyles.ImgUpload} src={main_image} rounded />
+                                        <Image className={imgStyles.ImgUpload} src={main_image} rounded />
                                     </figure>
                                     <div>
                                         <Form.Label
@@ -288,6 +324,28 @@ function PostCreateForm() {
                                 onChange={handleChangeImage}
                                 ref={imageInput}
                             />
+
+                            <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                ref={imageInput1}
+                            />
+                            <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                ref={imageInput2}
+                            />
+                            <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                ref={imageInput3}
+                            />
+                            <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                ref={imageInput4}
+                            />
+
                         </Form.Group>
 
                         {errors?.main_image?.map((message, idx) => (
