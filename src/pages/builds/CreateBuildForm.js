@@ -24,6 +24,10 @@ function BuildCreateForm() {
     build_name: "",
     content: "",
     main_image: "",
+    gallery_image_1: "",
+    gallery_image_2: "",
+    gallery_image_3: "",
+    gallery_image_4: "",
     build_cpu: "",
     build_mobo: "",
     build_ram: "",
@@ -66,6 +70,10 @@ function BuildCreateForm() {
     formData.append("build_case", build_case);
     formData.append("build_monitor", build_monitor);
     formData.append("main_image", imageInput.current.files[0]);
+    formData.append("gallery_image_1", imageInput1.current.files[0]);
+    formData.append("gallery_image_2", imageInput2.current.files[0]);
+    formData.append("gallery_image_3", imageInput3.current.files[0]);
+    formData.append("gallery_image_4", imageInput4.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/builds/", formData);
@@ -80,6 +88,11 @@ function BuildCreateForm() {
   };
 
   const imageInput = useRef(null);
+  const imageInput1 = useRef(null);
+  const imageInput2 = useRef(null);
+  const imageInput3 = useRef(null);
+  const imageInput4 = useRef(null);
+  
   const history = useHistory();
 
   const [errors, setErrors] = useState({});
@@ -230,14 +243,64 @@ function BuildCreateForm() {
 
               <Form.File
                 id="image-upload"
-                
+
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
+
+              <Form.File
+                id="image-upload-1"
+
+                accept="image/*"
+                ref={imageInput1}
+              />
+              <Form.File
+                id="image-upload-2"
+
+                accept="image/*"
+                ref={imageInput2}
+              />
+              <Form.File
+                id="image-upload-3"
+
+                accept="image/*"
+                ref={imageInput3}
+              />
+              <Form.File
+                id="image-upload-4"
+                accept="image/*"
+                ref={imageInput4}
+              />
+
             </Form.Group>
 
             {errors?.main_image?.map((message, idx) => (
+              <sub key={idx}>
+                {message}
+              </sub>
+            ))}
+
+
+            {errors?.gallery_image_1?.map((message, idx) => (
+              <sub key={idx}>
+                {message}
+              </sub>
+            ))}
+
+            {errors?.gallery_image_2?.map((message, idx) => (
+              <sub key={idx}>
+                {message}
+              </sub>
+            ))}
+
+            {errors?.gallery_image_3?.map((message, idx) => (
+              <sub key={idx}>
+                {message}
+              </sub>
+            ))}
+
+            {errors?.gallery_image_4?.map((message, idx) => (
               <sub key={idx}>
                 {message}
               </sub>
