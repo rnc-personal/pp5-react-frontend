@@ -76,6 +76,7 @@ function BuildCreateForm() {
     formData.append("gallery_image_4", imageInput4.current.files[0]);
 
     try {
+      setStatusText("CREATING BUILD...");
       const { data } = await axiosReq.post("/builds/", formData);
       history.push(`/builds/${data.id}`);
     } catch (err) {
@@ -96,6 +97,7 @@ function BuildCreateForm() {
   const history = useHistory();
 
   const [errors, setErrors] = useState({});
+  const [statusText, setStatusText] = useState("CREATE BUILD");
 
   const textFields = (
     <div className="text-center">
@@ -206,7 +208,7 @@ function BuildCreateForm() {
         CANCEL
       </Button>
       <Button className={`${btnStyles.Button}`} type="submit">
-        CREATE BUILD
+        {statusText}
       </Button>
     </div>
   );
