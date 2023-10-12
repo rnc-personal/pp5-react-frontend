@@ -43,7 +43,7 @@ function FeaturedBuild() {
                     <div className={styles.featuredBuildWrapper}>
                         <div className={styles.featuredBuildImage}>
                             <img src={featured.main_image} alt={featured.build_name} />
-                            <h3>{featured.build_name}</h3>
+                            <small>{featured.build_name}</small>
                         </div>
 
                         <div className={styles.featuredBuildText}>

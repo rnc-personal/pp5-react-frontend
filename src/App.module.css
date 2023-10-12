@@ -50,6 +50,7 @@ input,
 select,
 textarea,
 label,
+small,
 ul,
 li {
   font-weight: 200;

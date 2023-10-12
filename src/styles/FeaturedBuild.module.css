@@ -2,12 +2,19 @@
     display: flex;
     max-width: 960px;
     margin: 0 auto;
+    padding: 1.25rem;
     justify-content: space-around;
     flex-direction: row-reverse;
-    
+    border: 0.85rem solid var(--secondary-accent);
 }
 
-.featuredBuildText, .featuredBuildImage {
+.featuredBuildWrapper small {
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+}
+
+.featuredBuildText,
+.featuredBuildImage {
     display: flex;
     flex-direction: column;
 }
@@ -23,4 +30,14 @@
 .featuredBuildText {
     max-width: 75%;
     padding: 1.25rem;
+}
+
+@media screen and (max-width:767px) {
+    .featuredBuildWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        padding: 1.25rem;
+    }
 }
