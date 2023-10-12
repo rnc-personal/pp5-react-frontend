@@ -29,6 +29,7 @@ function PostCreateForm() {
     const { id } = useParams();
 
     const [errors, setErrors] = useState({});
+    const [statusText, setStatusText] = useState("UPDATE BUILD");
 
     const [buildData, setBuildData] = useState({
         build_name: "",
@@ -162,6 +163,7 @@ function PostCreateForm() {
         }
 
         try {
+            setStatusText("UPDATING BUILD...");
             await axiosReq.put(`/builds/${id}`, formData);
             history.push(`/builds/${id}`);
         } catch (err) {
@@ -283,7 +285,7 @@ function PostCreateForm() {
                 CANCEL
             </Button>
             <Button className={`${btnStyles.Button}`} type="submit">
-                UPDATE BUILD
+                {statusText}
             </Button>
         </div>
     );
