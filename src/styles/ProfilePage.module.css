@@ -2,9 +2,10 @@
     object-fit: cover;
     height: 120px;
     width: 120px;
-    margin: 4px;
+    margin: 2rem;
+    border-radius: 50%;
   }
-  
+
   .Link:hover {
     color:var(--main-accent) !important;
   }
